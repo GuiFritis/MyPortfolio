@@ -5,9 +5,14 @@
     --border_color: #fdf4ff77;
 }
 
+@font-face {
+	font-family: 'Inter';
+	src: url('../font/Inter-Regular.ttf');
+}
+
 body{
     margin: 0px;
-    font-family: Arial;
+    font-family: Inter;
     background-color: var(--bg_color);
     color: var(--text_color);
     margin-bottom: 30px;
