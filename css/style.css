@@ -45,19 +45,25 @@ hr{
     justify-content: center;
     flex-direction: column;
     margin: auto;
-    padding: 0px 60vw;
     height: 97vh;
-    width: calc(100% - 54vw);
-    padding: 0px 27vw;
+    width: 100%;
     background: linear-gradient(18deg, var(--bg_color) 40%, var(--bg_secondary));
     color: var(--text_color);
+}
+
+.header-wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
 }
 
 .greetings{
     width: 100%;
     text-align: left;
     margin: 0px;
-    font-size: 2em;
+    font-size: min(2em, 6vw);
+    align-self: start;
 }
 
 .underlined{
@@ -84,7 +90,7 @@ hr{
 }
 
 .main-title{
-    font-size: 8.5em;
+    font-size: min(8.5em, 16vw);
     margin: 0px;
     padding: 0px;
     line-height: 0.85em;
@@ -92,13 +98,13 @@ hr{
     letter-spacing: -0.02em;
     text-align: center;
     margin: 0.2em 0px;
+    align-self: center;
 }
 
 .presentation{
     font-size: 1em;
-    width: 90%;
-    align-self: flex-end;
     text-align: right;
+    align-self: end;
 }
 
 .content-title{
@@ -111,8 +117,7 @@ hr{
 
 .games{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-template-rows: 75vh;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 20px;
     align-items: center;
     padding: 10px 30px;
@@ -121,10 +126,11 @@ hr{
 .game-card{
     color: var(--text_color);
     text-decoration: none;
-    height: 100%;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    max-height: 72vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 20px;
     padding: 20px;
     border: 1px solid var(--border_color);
@@ -133,6 +139,7 @@ hr{
         0px 0px 5px 1px inset var(--border_color);
     transition: .2s;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .game-card:hover{
@@ -143,6 +150,7 @@ hr{
 .game-gif{
     width: 100%;
     max-height: 300px;
+    align-self: center;
     border-radius: 5px;
     transform: scale(1);
     transition: .3s;
@@ -153,10 +161,30 @@ hr{
 }
 
 .game-title{
-    margin-top: 0px;
+    margin: 0px;
     font-size: 1.6em;
     position: relative;
     width: fit-content;
+}
+
+.game-description {
+    margin: 0px;
+}
+
+.scrollable{
+    overflow: auto;
+}
+
+.scrollable::-webkit-scrollbar{
+    background-color: var(--bg_color);
+    border-radius: 10px;
+    width: 6px;
+    height: 6px;
+}
+
+.scrollable::-webkit-scrollbar-thumb{
+    background-color: var(--text_color);
+    border-radius: 10px;
 }
 
 .game-card .game-title::after{
@@ -171,4 +199,26 @@ hr{
 
 .game-card:hover .game-title::after{
     width: 100%;
+}
+
+@media only screen and (max-width: 770px) {
+    .page-header{
+        padding: 0px 10px;
+        width: calc(100vw - 20px);
+    }
+
+    .main-title{
+        letter-spacing: normal;
+        margin: 20px 0px 40px;
+    }
+
+    .presentation{
+        width: 100%;
+    }
+
+    .games{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
