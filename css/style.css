@@ -32,9 +32,7 @@ body{
     border-radius: 10px;
 }
 
-h2{
-    text-align: center;
-}
+h3{}
 
 hr{
     width: calc(100% - 40px);
@@ -113,8 +111,69 @@ hr{
     font-size: 2em;
     color: var(--bg_secondary);
     text-shadow: 0px 0px 10px var(--bg_secondary);
-    margin-top: 40px;
+    margin-top: 10px;
     margin-bottom: 35px;
+    text-align: center;
+}
+
+.content-subtitle{
+    font-size: 1.5em;
+    text-shadow: 0px 0px 10px var(--bg_secondary);
+    margin: 10px 0px 20px;
+    width: fit-content;
+    position: relative;
+}
+
+.content-subtitle::after {
+    content: "";
+    display:  block;
+    position: absolute;
+    left: 0px;
+    bottom: -2px;
+    width: 115%;
+    border-bottom: 1px solid var(--border_color);
+    box-shadow: 0px 0px 10px 1px var(--bg_secondary);
+}
+
+.section-padded{
+    padding: 30px;
+}
+
+.card{
+    padding: 20px;
+    border: 1px solid var(--border_color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px var(--border_color), 
+        0px 0px 5px 1px inset var(--border_color);
+}
+
+.aboutme-card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.aboutme-div-border{
+    margin-right: -10px;
+    padding-right: 10px;
+    border-right: 1px solid var(--border_color);
+    box-shadow: 3px 0px 5px -3px var(--border_color), 
+        -3px 0px 5px -3px inset var(--border_color);
+}
+
+.contact-list{
+    padding-left: 10px;
+    line-height: 1.5em;
+}
+
+.contact-list > a{
+    color: var(--text_color);
+    text-decoration: none;
+    transition: .15s;
+}
+
+.contact-list > a:hover{
+    color: var(--contrast_color);
 }
 
 .games{
@@ -122,7 +181,7 @@ hr{
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
     align-items: center;
-    padding: 10px 30px;
+    padding: 10px 0px;
 }
 
 .game-card{
@@ -134,11 +193,6 @@ hr{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px;
-    border: 1px solid var(--border_color);
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px 1px var(--border_color), 
-        0px 0px 5px 1px inset var(--border_color);
     transition: .2s;
     cursor: pointer;
     overflow: hidden;
@@ -218,7 +272,7 @@ hr{
 
 .page-footer > a{
     color: var(--bg_color);
-    transition: .1s;
+    transition: .15s;
     margin: 0px 2px;
     display: inline-block;
 }
