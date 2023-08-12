@@ -3,6 +3,8 @@
     --bg_color: #221f3f;
     --bg_secondary: #00eecc;
     --border_color: #fdf4ff77;
+    --bg_light: #e2e3e4;
+    --contrast_color: #ca0043;
 }
 
 @font-face {
@@ -199,6 +201,42 @@ hr{
 
 .game-card:hover .game-title::after{
     width: 100%;
+}
+
+.page-footer{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background: var(--bg_light);
+    color: var(--bg_color);
+    text-align: center;
+    background: linear-gradient(to top, var(--bg_light) 65%, transparent);
+    padding: 9px 0px 2px;
+    font-size: .9em;
+}
+
+.page-footer > a{
+    color: var(--bg_color);
+    transition: .1s;
+    margin: 0px 2px;
+    display: inline-block;
+}
+
+.page-footer > a:hover{
+    color: var(--contrast_color);
+}
+
+.footer-mail{
+    margin-bottom: -4px;
+}
+
+.footer-linkedin{
+    margin-bottom: -3px;
+}
+
+.footer-github{
+    margin-bottom: -3px;
 }
 
 @media only screen and (max-width: 770px) {
