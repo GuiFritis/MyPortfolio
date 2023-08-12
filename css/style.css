@@ -157,8 +157,8 @@ hr{
     margin-right: -10px;
     padding-right: 10px;
     border-right: 1px solid var(--border_color);
-    box-shadow: 3px 0px 5px -3px var(--border_color), 
-        -3px 0px 5px -3px inset var(--border_color);
+    box-shadow: 4px 0px 5px -4px var(--border_color), 
+        -4px 0px 5px -4px inset var(--border_color);
 }
 
 .contact-list{
@@ -306,6 +306,22 @@ hr{
 
     .presentation{
         width: 100%;
+    }
+
+    .aboutme-card{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .aboutme-div-border{
+        border-right: none;
+        border-bottom: 1px solid var(--border_color);
+        margin-right: 0px;
+        padding-right: 0px;
+        margin-bottom: -10px;
+        padding-bottom: 10px;
+        box-shadow: 0px 4px 5px -4px var(--border_color), 
+            0px -4px 5px -4px inset var(--border_color);
     }
 
     .games{
