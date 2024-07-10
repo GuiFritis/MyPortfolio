@@ -1,27 +1,45 @@
-const theme = localStorage.getItem('theme');
-if(theme == 'dark')
-{
-    document.getElementById('theme-switch-checkbox').setAttribute('checked', true);
-}
+var cur_section = '';
 
-function switchLightMode(input)
-{    
-    if(input.getAttribute('checked'))
+window.addEventListener('load', (event) => {
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches)
     {
-        localStorage.setItem('theme', 'dark');
+        document.getElementById('theme-switch-checkbox').setAttribute('checked', true);
+        document.body.classList.add('dark');
+    }
+    else
+    {        
+        document.body.classList.add('light');
+    }
+    document.getElementById('theme-switch-checkbox').addEventListener("change", switchLightMode);
+
+    openSection('/content/about_me.html');
+});
+
+function switchLightMode(ev)
+{    
+    if(ev.target.checked)
+    {
+        document.body.classList.add('dark');
+        document.body.classList.remove('light');
     }
     else
     {
-        localStorage.setItem('theme', 'light');
+        document.body.classList.add('light');
+        document.body.classList.remove('dark');
     }
 }
 
 function openSection(link)
 {
-    const request = new XMLHttpRequest();
-    request.onload = function() {
-        document.getElementById("page-content").innerHTML = this.responseText;
+    if(cur_section != link)
+    {
+        cur_section = link;
+        const request = new XMLHttpRequest();
+        request.onload = function() {
+            document.getElementById("page-content").innerHTML = this.responseText;
+        }
+        request.onerror = function(e){console.log(e)}
+        request.open("GET", link, false);
+        request.send();
     }
-    request.open("GET", link, true);
-    request.send();
 }
