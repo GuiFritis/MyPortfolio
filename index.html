@@ -20,34 +20,44 @@
             </label>
             <div class="right-side-header">
                 <ul class="navbar">
-                    <li><a class="nav-item" href="#" onclick="openSection('./content/about_me.html')">Sobre mim</a></li>
-                    <li><a class="nav-item" href="#" onclick="openSection('./content/games.html')">Jogos</a></li>
+                    <li><a class="nav-item active" href="#" onclick="openSection('./content/about_me.html', this)">Sobre mim</a></li>
+                    <li><a class="nav-item" href="#" onclick="openSection('./content/games.html', this)">Jogos</a></li>
                     <!-- <li><a class="nav-item" href="#" onclick="openSection('./content/web_projects.html')">Projetos web</a></li> -->
                 </ul>
-                <label class="theme-switch" for="theme-switch-checkbox">
-                    <input type="checkbox" id="theme-switch-checkbox" class="d-none">
-                    <div class="switch-pin">
-                        <span class="bi bi-moon-stars theme-light"></span>
-                        <span class="bi bi-sun-fill theme-dark"></span>
+                <div class="dropdown dropdown-language opens-right">
+                    <span class="dropdown-link flag">
+                        <img src="./media/flag_brazil.png" alt="Bandeira do Brasil">
+                    </span>
+                    <div class="dropdown-menu">
+                        <a href="index_en.html" class="flag">
+                            <img src="./media/flag_uk.png" alt="Bandeira do Reino Unido">
+                        </a>
                     </div>
-                </label>
+                </div>
             </div>
-
         </nav>
     </header>
-    <hr/>
     <div id="page-content"></div>
     <footer class="page-footer">
-        Guilherme Fritis - 
-        <a href="mailto:guilhermecfritis@gmail.com?subject=&body=">
-            <span class="bi bi-envelope-fill"></span>
-        </a> 
-        <a href="https://www.linkedin.com/in/guilherme-fritis-6b0707180/">
-            <span class="bi bi-linkedin"></span>
-        </a>
-        <a href="https://github.com/guifritis">
-            <span class="bi bi-github"></span>
-        </a>
+        <span class="text-footer">
+            Guilherme Fritis - 
+            <a href="mailto:guilhermecfritis@gmail.com?subject=&body=">
+                <span class="bi bi-envelope-fill"></span>
+            </a> 
+            <a href="https://www.linkedin.com/in/guilherme-fritis-6b0707180/">
+                <span class="bi bi-linkedin"></span>
+            </a>
+            <a href="https://github.com/guifritis">
+                <span class="bi bi-github"></span>
+            </a>
+        </div>
+        <label class="theme-switch" for="theme-switch-checkbox">
+            <input type="checkbox" id="theme-switch-checkbox" class="d-none">
+            <div class="switch-pin">
+                <span class="bi bi-moon-stars theme-dark"></span>
+                <span class="bi bi-sun-fill theme-light"></span>
+            </div>
+        </label>
     </footer>    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">

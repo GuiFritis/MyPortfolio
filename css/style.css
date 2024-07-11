@@ -1,15 +1,13 @@
 /* PADRÕES */
 :root{
-    --text_color: #fdf4ff;
     --bg_color: #1e1829;
-    --bg_secondary: #9169ff;
-    --border_color: #fdf4ff77;
-    --bg_light: #e2e3e4;
+    --bg_secondary: #e2e3e4;
+    --text_color: #fdf4ff;
+    --title_color: #bdbabe;
+    --border_color: #dfd8e0ad;
+    --shadow_color: #fdf5ff27;
     --contrast_color: #a692ff;
-    --default_shadow: 0px 0px 5px 1px var(--border_color), 
-    0px 0px 5px 1px inset var(--border_color);
-    --default_border: 1px solid var(--border_color);
-    transition: .3s;
+    --contrast_color_2: #9169ff;
 }
 
 body.dark img{
@@ -21,12 +19,14 @@ body.dark .theme-light{
 }
 
 body.light{
-    --text_color: #111413;
-    --bg_color: #e4f2f2;
-    --bg_secondary: #12af8d;
-    --border_color: #53b09f77;
-    --bg_light: #525b64;
-    --contrast_color: #0a986d;
+    --bg_color: #f1f8f9;
+    --bg_secondary: #293037;
+    --text_color: #1e1e1f;
+    --title_color: #575757;
+    --border_color: #a3a6aaad;
+    --shadow_color: #19191a1a;
+    --contrast_color: #0a8f67;
+    --contrast_color_2: #1eaa80;
 }
 
 body.light .theme-dark{
@@ -47,7 +47,7 @@ body{
 }
 
 ::-webkit-scrollbar{
-    background-color: var(--bg_color);
+    background-color: var(--shadow_color);
     border-radius: 10px;
     width: 8px;
     height: 8px;
@@ -70,6 +70,10 @@ a{
 }
 
 a:hover{
+    color: var(--contrast_color);
+}
+
+.contrast{
     color: var(--contrast_color);
 }
 
@@ -124,12 +128,12 @@ a:hover{
 
 .content-title{
     font-size: 2em;
-    color: var(--contrast_color);
-    text-shadow: 0px 0px 8px var(--bg_secondary);
+    color: var(--text_color);
     margin: 10px 10px 30px;
     font-weight: normal;
     position: relative;
     width: fit-content;
+    text-transform: uppercase;
 }
 
 .content-title::after {
@@ -138,16 +142,16 @@ a:hover{
     position: absolute;
     left: -10px;
     bottom: -2px;
-    width: 140%;
+    width: 260px;
+    min-width: 130%;
     border-bottom: 1px solid currentColor;
-    box-shadow: 0px 0px 10px 1px var(--bg_secondary);
 }
 
 .content-subtitle{
     font-size: 1.5em;
     font-weight: normal;
-    text-shadow: 0px 0px 10px var(--bg_secondary);
     margin: 10px 0px 20px;
+    color: var(--title_color)
 }
 
 .section-padded{
@@ -158,14 +162,14 @@ a:hover{
     padding: 20px;
     border: 1px solid var(--border_color);
     border-radius: 10px;
-    box-shadow: 0px 0px 5px 1px var(--border_color), 
-        0px 0px 5px 1px inset var(--border_color);
+    box-shadow: 2px 3px 10px -4px var(--shadow_color), 
+        0px 0px 20px -8px var(--shadow_color);
 }
 
 .aboutme-card{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 40px;
 }
 
 .about-me-overview > p{
@@ -174,16 +178,13 @@ a:hover{
 }
 
 .aboutme-div-border{
-    margin-right: -10px;
-    padding-right: 10px;
+    margin-right: -20px;
+    padding-right: 20px;
     border-right: 1px solid var(--border_color);
-    box-shadow: 6px 0px 5px -6px var(--border_color), 
-        -6px 0px 5px -6px inset var(--border_color);
-        overflow: visible;
 }
 
 .contact-list{
-    padding-left: 1em;
+    padding-left: 0;
     line-height: 1.8em;
     list-style-type: none;
 }
@@ -326,8 +327,9 @@ a:hover{
     height: 60px;
     width: calc(100vw - 40px);
     padding: 0 20px;
-    background: linear-gradient(18deg, var(--bg_color) 40%, var(--bg_secondary));
+    background-color: var(--bg_color);
     color: var(--text_color);
+    box-shadow: 0 2px 15px var(--shadow_color);
     position: fixed;
     top: 0;
     left: 0;
@@ -358,13 +360,20 @@ a:hover{
     font-size: 1.1em;
 }
 
+.nav-item.active{
+    color: var(--contrast_color);
+    pointer-events: none;
+    touch-action: none;
+    cursor: auto;
+}
+
 .navbar-button-mobile{
     display: none;
 }
 
 @media only screen and (max-width: 770px) {
     .navbar{
-        background-color: var(--bg_light);
+        background-color: var(--bg_secondary);
         color: var(--bg_color);
         flex-direction: column;
         align-items: start;
@@ -422,38 +431,50 @@ a:hover{
     }
 }
 
-/* HEADER > THEME SWITCH */
-.theme-switch{
-    display: block;
-    border-radius: 50px;
-    width: 2.2em;
-    height: 1.2em;
-    background-color: var(--bg_color);
+/* HEADER > LANGUAGES */
+.dropdown{
     position: relative;
 }
 
-.switch-pin{
+.flag{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(1.2em - 4px);
-    width: calc(1.2em - 4px);
-    border-radius: 50%;
-    background-color: var(--text_color);
+    border-radius: 100px;
+    height: 1.55em;
+    width: 1.55em;
+    overflow: hidden;
+}
+
+.flag > img{
+    object-fit: contain;
+    height: 2.7em;
+}
+
+.dropdown-menu{
+    background-color: var(--bg_color);
+    border: 1px solid var(--border_color);
+    border-radius: 10px;
+    padding: 5px;    
+    box-shadow: 2px 3px 10px -4px var(--shadow_color), 
+        0px 0px 20px -8px var(--shadow_color);
     position: absolute;
-    left: 2px;
-    top: 2px;
-    transition: .3s ease-out;
+    left: 0px;
+    top: 110%;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 11;
+    transition: .2s;
 }
 
-#theme-switch-checkbox:checked + .switch-pin{
-    left: calc(1.1em + 1px);
-    rotate: 90deg;
+.opens-right > .dropdown-menu{
+    right: 0;
+    left: unset;
 }
 
-.switch-pin > span{
-    font-size: .7em;
-    color: var(--bg_color);
+.dropdown.open > .dropdown-menu{
+    visibility: visible;
+    opacity: 1;
 }
 
 /* PAGE CONTENT */
@@ -467,22 +488,28 @@ a:hover{
     bottom: 0px;
     left: 0px;
     width: 100%;
-    background: var(--bg_light);
+    background: var(--bg_secondary);
     color: var(--bg_color);
     text-align: center;
-    background: var(--bg_light);
-    padding: 2px 0px 2px;
+    background: var(--bg_secondary);
+    padding: .2em 0px;
     font-size: .8em;
 }
 
-.page-footer > a{
+.text-footer{
+    display: inline-block;
+    margin-bottom: .3em;
+    margin-top: .3em;
+}
+
+.text-footer > a{
     color: var(--bg_color);
     transition: .15s;
     margin: 0px 2px;
     display: inline-block;
 }
 
-.page-footer > a:hover{
+.text-footer > a:hover{
     color: var(--contrast_color);
 }
 
@@ -496,4 +523,42 @@ a:hover{
 
 .footer-github{
     margin-bottom: -3px;
+}
+
+/* FOOTER > THEME SWITCH */
+.theme-switch{
+    display: block;
+    border-radius: 50px;
+    width: 2.8em;
+    height: 1.6em;
+    border: 1px solid var(--text_color);
+    background-color: var(--title_color);
+    position: fixed;
+    right: 10px;
+    bottom: .2em;
+    z-index: 9;
+}
+
+.switch-pin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(1.6em - 4px);
+    width: calc(1.6em - 4px);
+    border-radius: 50%;
+    background-color: var(--bg_color);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    transition: .3s ease-out;
+}
+
+#theme-switch-checkbox:checked + .switch-pin{
+    left: calc(1.4em - 1px);
+    rotate: 45deg;
+}
+
+.switch-pin > span{
+    font-size: .9em;
+    color: var(--text_color);
 }
