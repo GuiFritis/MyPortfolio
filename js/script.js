@@ -12,7 +12,7 @@ window.addEventListener('load', (event) => {
     }
     document.getElementById('theme-switch-checkbox').addEventListener("change", switchLightMode);
 
-    openSection('/content/about_me.html');
+    openSection('./content/about_me.html');
 });
 
 function switchLightMode(ev)
