@@ -1,7 +1,8 @@
 /* PADRÕES */
 :root{
     --bg_color: #1e1829;
-    --bg_secondary: #e2e3e4;
+    --bg_secondary: #312f35;
+    --bg_contrast: #e2e3e4;
     --text_color: #fdf4ff;
     --title_color: #bdbabe;
     --border_color: #dfd8e0ad;
@@ -20,7 +21,8 @@ body.dark .theme-light{
 
 body.light{
     --bg_color: #f1f8f9;
-    --bg_secondary: #293037;
+    --bg_secondary: #cfd7d8;
+    --bg_contrast: #293037;
     --text_color: #1e1e1f;
     --title_color: #575757;
     --border_color: #a3a6aaad;
@@ -75,6 +77,75 @@ a:hover{
 
 .contrast{
     color: var(--contrast_color);
+}
+
+/* DROPDOWN */
+.dropdown{
+    position: relative;
+}
+
+.dropdown-link{
+    cursor: pointer;
+}
+
+.dropdown-link::after{
+    display: inline-block;
+    margin-left: .2em;
+    vertical-align: 30%;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+
+.dropdown-menu{
+    visibility: hidden;
+    opacity: 0;
+    background-color: var(--bg_color);
+    border: 1px solid var(--border_color);
+    border-radius: 10px;
+    padding: 5px;    
+    box-shadow: 2px 3px 10px -4px var(--shadow_color), 
+        0px 0px 20px -8px var(--shadow_color);
+    position: absolute;
+    min-width: 100%;
+    left: 0px;
+    top: 110%;
+    z-index: 11;
+    transition: .2s;
+}
+
+.opens-right > .dropdown-menu{
+    right: 0;
+    left: unset;
+}
+
+.dropdown.open > .dropdown-menu{
+    visibility: visible;
+    opacity: 1;
+}
+
+/* TOOLTIP */
+.tooltip{
+    visibility: hidden;
+    opacity: 0;
+    padding: 3px 5px;
+    font-size: .9em;
+    color: var(--title_color);
+    background-color: var(--bg_secondary);
+    border-radius: 5px;
+    border: 1px solid var(--border_color);
+    box-shadow: 2px 3px 10px -4px var(--shadow_color), 
+        0px 0px 20px -8px var(--shadow_color);
+    position: absolute;
+    z-index: 12;
+    transition: .2s;
+}
+
+.tooltip.show{
+    visibility: visible;
+    opacity: 1;
 }
 
 .greetings{
@@ -373,7 +444,7 @@ a:hover{
 
 @media only screen and (max-width: 770px) {
     .navbar{
-        background-color: var(--bg_secondary);
+        background-color: var(--bg_contrast);
         color: var(--bg_color);
         flex-direction: column;
         align-items: start;
@@ -432,12 +503,12 @@ a:hover{
 }
 
 /* HEADER > LANGUAGES */
-.dropdown{
-    position: relative;
+.text-center{
+    text-align: center;
 }
 
 .flag{
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     border-radius: 100px;
@@ -451,32 +522,6 @@ a:hover{
     height: 2.7em;
 }
 
-.dropdown-menu{
-    background-color: var(--bg_color);
-    border: 1px solid var(--border_color);
-    border-radius: 10px;
-    padding: 5px;    
-    box-shadow: 2px 3px 10px -4px var(--shadow_color), 
-        0px 0px 20px -8px var(--shadow_color);
-    position: absolute;
-    left: 0px;
-    top: 110%;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 11;
-    transition: .2s;
-}
-
-.opens-right > .dropdown-menu{
-    right: 0;
-    left: unset;
-}
-
-.dropdown.open > .dropdown-menu{
-    visibility: visible;
-    opacity: 1;
-}
-
 /* PAGE CONTENT */
 #page-content{
     margin-top: 40px;
@@ -488,10 +533,10 @@ a:hover{
     bottom: 0px;
     left: 0px;
     width: 100%;
-    background: var(--bg_secondary);
+    background: var(--bg_contrast);
     color: var(--bg_color);
     text-align: center;
-    background: var(--bg_secondary);
+    background: var(--bg_contrast);
     padding: .2em 0px;
     font-size: .8em;
 }

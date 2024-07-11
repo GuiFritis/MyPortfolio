@@ -4,6 +4,14 @@ var mode = url_params.has('mode')?url_params.has('mode'):
     (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
 
 window.addEventListener('load', (event) => {
+    loadTheme();
+    loadDropdowns();
+    loadToolips();
+    openSection(cur_section);
+});
+
+function loadTheme()
+{
     if(mode == 'light')
     {
         document.getElementById('theme-switch-checkbox').setAttribute('checked', true);
@@ -14,15 +22,52 @@ window.addEventListener('load', (event) => {
         document.body.classList.add('dark');
     }
     document.getElementById('theme-switch-checkbox').addEventListener("change", switchLightMode);
-    dropdowns = document.getElementsByClassName('dropdown-link');
+}
+
+function loadDropdowns()
+{
+    const dropdowns = document.getElementsByClassName('dropdown-link');
     for (let i = 0; i < dropdowns.length; i++) {
         const element = dropdowns[i];
         element.addEventListener('click', function(ev){
             element.parentElement.classList.toggle("open");
         });
     }
-    openSection(cur_section);
-});
+}
+
+function loadToolips()
+{
+    const tooltips = document.querySelectorAll("[data-tooltip]");
+    for (let i = 0; i < tooltips.length; i++) {
+        const element = tooltips[i];
+        const tooltip = document.createElement('div');
+        tooltip.classList.add('tooltip');
+        document.body.append(tooltip);
+        element.addEventListener('mouseenter', function(ev){
+            tooltip.innerText = element.getAttribute('data-tooltip');
+            tooltip.style.left = Math.min(
+                element.getBoundingClientRect().left - element.clientWidth/2,
+                document.body.clientWidth - tooltip.clientWidth - 8
+            ) + "px";
+            if(element.getBoundingClientRect().top <= tooltip.clientHeight + 30)
+            {
+                tooltip.style.bottom = "";
+                tooltip.style.top = (element.getBoundingClientRect().top + element.clientHeight + 5) + "px";
+            }
+            else
+            {
+                tooltip.style.top = "";
+                tooltip.style.bottom = 
+                    (document.body.clientHeight - element.getBoundingClientRect().top - element.clientHeight + 5) + "px";
+            }
+            tooltip.classList.add('show');
+
+        });
+        element.addEventListener('mouseleave', function(ev){
+            tooltip.classList.remove('show');
+        });
+    }
+}
 
 function switchLightMode(ev)
 {    
