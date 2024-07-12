@@ -8,7 +8,9 @@
 </head>
 <body>
     <header class="page-header">
-        <h3 class="header-info">Portfolio Guilherme Fritis</h3>
+        <h3 class="header-info">
+            Portfolio Guilherme Fritis
+        </h3>
         <nav>
             <input type="checkbox" class="d-none" id="switch_mobile_menu">
             <label class="navbar-button-mobile clickable" for="switch_mobile_menu">
@@ -18,34 +20,49 @@
             </label>
             <div class="right-side-header">
                 <ul class="navbar">
-                    <li><a class="nav-item" href="#" onclick="openSection('/content/about_me_en.html')">About me</a></li>
-                    <li><a class="nav-item" href="#" onclick="openSection('/content/games_en.html')">Games</a></li>
-                    <!-- <li><a class="nav-item" href="#" onclick="openSection('/content/web_projects_en.html')">Web projects</a></li> -->
+                    <li><a class="nav-item active" href="#" onclick="openSection('about_me')" data-section="about_me">About me</a></li>
+                    <li><a class="nav-item" href="#" onclick="openSection('games')" data-section="games">Games</a></li>
+                    <!-- <li><a class="nav-item" href="#" onclick="openSection('./content/web_projects.html')">Projetos web</a></li> -->
                 </ul>
-                <label class="theme-switch" for="theme-switch-checkbox">
-                    <input type="checkbox" id="theme-switch-checkbox" class="d-none">
-                    <div class="switch-pin">
-                        <span class="bi bi-moon-stars theme-light"></span>
-                        <span class="bi bi-sun-fill theme-dark"></span>
+                <div class="dropdown dropdown-language opens-right">
+                    <span class="dropdown-link" data-tooltip="Trocar língua">
+                        <span class="flag">
+                            <img src="./media/flag_uk.png" alt="United Kingdom's flag">
+                        </span>
+                    </span>
+                    <div class="dropdown-menu text-center">
+                        <a href="javascript:;" onclick="switchLanguage('');" class="flag" data-tooltip="Ver essa página em português">
+                            <img src="./media/flag_brazil.png" alt="Brazil's flag">
+                        </a>
                     </div>
-                </label>
+                </div>
             </div>
-
         </nav>
     </header>
-    <hr/>
     <div id="page-content"></div>
     <footer class="page-footer">
-        Guilherme Fritis - 
-        <a href="mailto:guilhermecfritis@gmail.com?subject=&body=">
-            <span class="bi bi-envelope-fill"></span>
-        </a> 
-        <a href="https://www.linkedin.com/in/guilherme-fritis-6b0707180/">
-            <span class="bi bi-linkedin"></span>
-        </a>
-        <a href="https://github.com/guifritis">
-            <span class="bi bi-github"></span>
-        </a>
+        <span class="text-footer">
+            Guilherme Fritis - 
+            <a href="mailto:guilhermecfritis@gmail.com?subject=&body=" data-tooltip="Send me an e-mail">
+                <span class="bi bi-envelope-fill"></span>
+            </a> 
+            <a href="https://www.linkedin.com/in/guilherme-fritis-6b0707180/" data-tooltip="Connect with me on linkedIn">
+                <span class="bi bi-linkedin"></span>
+            </a>
+            <a href="https://github.com/guifritis" data-tooltip="See my profile on github">
+                <span class="bi bi-github"></span>
+            </a>
+            <a href="https://guifritis.itch.io/" data-tooltip="Try out my games on itch.io">
+                <span class="bi bi-joystick"></span>
+            </a>
+        </div>
+        <label class="theme-switch" for="theme-switch-checkbox" data-tooltip="Switch between light and dark theme.">
+            <input type="checkbox" id="theme-switch-checkbox" class="d-none">
+            <div class="switch-pin">
+                <span class="bi bi-moon-stars theme-dark"></span>
+                <span class="bi bi-sun-fill theme-light"></span>
+            </div>
+        </label>
     </footer>    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">

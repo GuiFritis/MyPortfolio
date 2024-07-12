@@ -1,13 +1,14 @@
 const url_params = new URLSearchParams(window.location.search);
-var cur_section = url_params.has('section')?url_params.get('section'):'./content/about_me.html';
+var section = url_params.has('section')?url_params.get('section'):'about_me';
 var mode = url_params.has('mode')?url_params.has('mode'):
     (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+const language = url_params.has('language')?url_params.get('language'):'';
 
 window.addEventListener('load', (event) => {
     loadTheme();
     loadDropdowns();
     loadToolips();
-    openSection(cur_section);
+    openSection(section);
 });
 
 function loadTheme()
@@ -30,6 +31,7 @@ function loadDropdowns()
     for (let i = 0; i < dropdowns.length; i++) {
         const element = dropdowns[i];
         element.addEventListener('click', function(ev){
+            hideTooltip();
             element.parentElement.classList.toggle("open");
         });
     }
@@ -37,36 +39,50 @@ function loadDropdowns()
 
 function loadToolips()
 {
-    const tooltips = document.querySelectorAll("[data-tooltip]");
-    for (let i = 0; i < tooltips.length; i++) {
-        const element = tooltips[i];
-        const tooltip = document.createElement('div');
-        tooltip.classList.add('tooltip');
-        document.body.append(tooltip);
+    const tooltips_callers = document.querySelectorAll("[data-tooltip]");
+    const tooltip = document.createElement('div');
+    tooltip.classList.add('tooltip');
+    tooltip.id = 'tooltip';
+    document.body.append(tooltip);
+    const tooltip_pointer = document.createElement('div');
+    tooltip_pointer.classList.add('tooltip-pointer');
+    document.body.append(tooltip_pointer);
+    for (let i = 0; i < tooltips_callers.length; i++) {  
+        const element = tooltips_callers[i];      
         element.addEventListener('mouseenter', function(ev){
             tooltip.innerText = element.getAttribute('data-tooltip');
             tooltip.style.left = Math.min(
-                element.getBoundingClientRect().left - element.clientWidth/2,
+                element.getBoundingClientRect().left - tooltip.clientWidth/2 + element.clientWidth/2,
                 document.body.clientWidth - tooltip.clientWidth - 8
             ) + "px";
+            tooltip_pointer.style.left = (element.getBoundingClientRect().left + element.clientWidth/2 - 3) + "px";
             if(element.getBoundingClientRect().top <= tooltip.clientHeight + 30)
             {
-                tooltip.style.bottom = "";
-                tooltip.style.top = (element.getBoundingClientRect().top + element.clientHeight + 5) + "px";
+                tooltip.style.top = (element.getBoundingClientRect().top + element.clientHeight + 3) + "px";
+                tooltip_pointer.style.top = (element.getBoundingClientRect().top + element.clientHeight) + "px";
+                tooltip_pointer.style.rotate = "135deg";
             }
             else
             {
-                tooltip.style.top = "";
-                tooltip.style.bottom = 
-                    (document.body.clientHeight - element.getBoundingClientRect().top - element.clientHeight + 5) + "px";
+                tooltip.style.top = 
+                    (element.getBoundingClientRect().top - element.clientHeight/2 - tooltip.clientHeight) + "px";
+                tooltip_pointer.style.top = 
+                (element.getBoundingClientRect().top - element.clientHeight/2 - 1) + "px";
+                tooltip_pointer.style.rotate = "-45deg";
             }
             tooltip.classList.add('show');
-
+            tooltip_pointer.classList.add('show');
         });
         element.addEventListener('mouseleave', function(ev){
             tooltip.classList.remove('show');
+            tooltip_pointer.classList.remove('show');
         });
     }
+}
+
+function hideTooltip()
+{
+    document.getElementById("tooltip").classList.remove('show');
 }
 
 function switchLightMode(ev)
@@ -85,19 +101,22 @@ function switchLightMode(ev)
     }
 }
 
-function openSection(link, a = null)
+function openSection(link)
 {
-    if(a)
-    {
-        document.querySelector(".nav-item.active").classList.remove("active");
-        a.classList.add("active");
-    }
-    cur_section = link;
+    document.querySelector('.nav-item.active').classList.remove('active');
+    document.querySelector('.nav-item[data-section='+link+']').classList.add('active');
+    section = link;
+    link = './content/' + section + language + '.html';
     const request = new XMLHttpRequest();
     request.onload = function() {
-        document.getElementById("page-content").innerHTML = this.responseText;
+        document.getElementById('page-content').innerHTML = this.responseText;
     }
     request.onerror = function(e){console.log(e)}
-    request.open("GET", link, false);
+    request.open('GET', link, false);
     request.send();
+}
+
+function switchLanguage(lang)
+{
+    document.location.href=`index${lang}.html?mode=${mode}&section=${section}&language=${lang}`;
 }
