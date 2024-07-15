@@ -9,6 +9,7 @@
     --shadow_color: #fdf5ff27;
     --contrast_color: #a692ff;
     --contrast_color_2: #8569ff;
+    --btn_shadow: #8569ff66;
 }
 
 body.dark img{
@@ -29,6 +30,7 @@ body.light{
     --shadow_color: #19191a1a;
     --contrast_color: #0a8f67;
     --contrast_color_2: #1faf84;
+    --btn_shadow: #1faf8466;
 }
 
 body.light .theme-dark{
@@ -75,8 +77,16 @@ a:hover{
     color: var(--contrast_color);
 }
 
+.mb-5px{
+    margin-bottom: 5px !important;
+}
+
 .contrast{
     color: var(--contrast_color);
+}
+
+.clickable{
+    cursor: pointer;
 }
 
 /* DROPDOWN */
@@ -205,15 +215,23 @@ a:hover{
 }
 
 .main-title{
-    font-size: min(8.5em, 16vw);
-    margin: 0px;
+    font-size: min(2.5em, 3.4vw);
     padding: 0px;
     line-height: 0.85em;
     width: 100%;
     letter-spacing: -0.02em;
-    text-align: center;
-    margin: 0.2em 0px;
-    align-self: center;
+    margin: 0px 0px .6em;
+    position: relative;
+}
+
+.main-title::after {
+    content: "";
+    display:  block;
+    position: absolute;
+    left: -5px;
+    bottom: -8px;
+    min-width: 100%;
+    border-bottom: 1px solid currentColor;
 }
 
 .presentation{
@@ -247,7 +265,7 @@ a:hover{
     font-size: 1.5em;
     font-weight: normal;
     margin: 10px 0px 20px;
-    color: var(--title_color)
+    color: var(--title_color);
 }
 
 .section-padded{
@@ -260,12 +278,6 @@ a:hover{
     border-radius: 10px;
     box-shadow: 2px 3px 10px -4px var(--shadow_color), 
         0px 0px 20px -8px var(--shadow_color);
-}
-
-.aboutme-card{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
 }
 
 .about-me-overview > p{
@@ -567,8 +579,7 @@ a:hover{
 
 .text-footer{
     display: inline-block;
-    margin-bottom: .1em;
-    margin-top: .1em;
+    margin: .1em 0 .1em;
     font-size: .85em;
 }
 
@@ -632,4 +643,92 @@ a:hover{
 .switch-pin > span{
     font-size: .8em;
     color: var(--text_color);
+}
+
+/* LANDING PAGE */
+.landing-section{
+    padding: 30px 5vw;
+    height: calc(99vh - 130px);
+}
+
+.grid-landing{
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    gap: 5vw;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+}
+
+.text-landing > h2{
+    margin-top: 0px;
+}
+
+.btn-group-flex{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+    display: inline-block;
+    background-color: var(--contrast_color);
+    padding: 5px 15px;
+    border-radius: 50px;
+    color: var(--bg_color);
+    text-align: center;
+    font-size: .9em;
+    font-weight: 600;
+    border: 1px solid var(--border_color);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover{
+    background-color: var(--contrast_color_2);
+    color: var(--text_color);
+    box-shadow: 0px 0px 1px 3px var(--btn_shadow);
+    z-index: 2;
+}
+
+.two-side-button{
+    display: inline-flex;
+    gap: 0px;
+    justify-content: center;
+    min-width: 100px;
+    font-size: .9em;
+}
+
+.two-side-button > .btn{
+    width: 50%;
+    min-width: unset;
+}
+
+.two-side-button > .btn:first-child{
+    border-radius: 50px 0px 0px 50px;
+}
+
+.two-side-button > .btn:last-child{
+    border-radius: 0px 50px 50px 0px;
+}
+
+.btn-group-landing{
+    max-width: min(90%, 500px);
+}
+
+.btn-group-landing > *{
+    width: 50%;
+}
+
+.landing-img{
+    height: 100%;
+    text-align: center;
+}
+
+.landing-img > img{
+    background-color: #aaaaaa33;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }

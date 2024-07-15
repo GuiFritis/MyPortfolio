@@ -1,13 +1,15 @@
 const url_params = new URLSearchParams(window.location.search);
-var section = url_params.has('section')?url_params.get('section'):'about_me';
+var section = url_params.has('section')?url_params.get('section'):'landing_page';
 var mode = url_params.has('mode')?url_params.has('mode'):
     (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
 const language = url_params.has('language')?url_params.get('language'):'';
+const tooltip = document.createElement('div');
+const tooltip_pointer = document.createElement('div');
 
 window.addEventListener('load', (event) => {
     loadTheme();
     loadDropdowns();
-    loadToolips();
+    createTooltip();
     openSection(section);
 });
 
@@ -16,6 +18,7 @@ function loadTheme()
     if(mode == 'light')
     {
         document.getElementById('theme-switch-checkbox').setAttribute('checked', true);
+        document.body.classList.add('light');
         document.body.classList.add('light');
     }
     else
@@ -37,52 +40,58 @@ function loadDropdowns()
     }
 }
 
-function loadToolips()
+function createTooltip()
 {
-    const tooltips_callers = document.querySelectorAll("[data-tooltip]");
-    const tooltip = document.createElement('div');
     tooltip.classList.add('tooltip');
     tooltip.id = 'tooltip';
     document.body.append(tooltip);
-    const tooltip_pointer = document.createElement('div');
     tooltip_pointer.classList.add('tooltip-pointer');
     document.body.append(tooltip_pointer);
+}
+
+function assignateTooltips()
+{
+    const tooltips_callers = document.querySelectorAll("[data-tooltip]");
     for (let i = 0; i < tooltips_callers.length; i++) {  
-        const element = tooltips_callers[i];      
-        element.addEventListener('mouseenter', function(ev){
-            tooltip.innerText = element.getAttribute('data-tooltip');
-            tooltip.style.left = Math.min(
-                element.getBoundingClientRect().left - tooltip.clientWidth/2 + element.clientWidth/2,
-                document.body.clientWidth - tooltip.clientWidth - 8
-            ) + "px";
-            tooltip_pointer.style.left = (element.getBoundingClientRect().left + element.clientWidth/2 - 3) + "px";
-            if(element.getBoundingClientRect().top <= tooltip.clientHeight + 30)
-            {
-                tooltip.style.top = (element.getBoundingClientRect().top + element.clientHeight + 3) + "px";
-                tooltip_pointer.style.top = (element.getBoundingClientRect().top + element.clientHeight) + "px";
-                tooltip_pointer.style.rotate = "135deg";
-            }
-            else
-            {
-                tooltip.style.top = 
-                    (element.getBoundingClientRect().top - element.clientHeight/2 - tooltip.clientHeight) + "px";
-                tooltip_pointer.style.top = 
-                (element.getBoundingClientRect().top - element.clientHeight/2 - 1) + "px";
-                tooltip_pointer.style.rotate = "-45deg";
-            }
-            tooltip.classList.add('show');
-            tooltip_pointer.classList.add('show');
-        });
-        element.addEventListener('mouseleave', function(ev){
-            tooltip.classList.remove('show');
-            tooltip_pointer.classList.remove('show');
-        });
+        const element = tooltips_callers[i];   
+        element.removeEventListener('mouseenter', showTooltip);
+        element.removeEventListener('mouseleave', hideTooltip);
+
+        element.addEventListener('mouseenter', showTooltip);
+        element.addEventListener('mouseleave', hideTooltip);
     }
 }
 
-function hideTooltip()
+function showTooltip(ev)
 {
-    document.getElementById("tooltip").classList.remove('show');
+    tooltip.innerText = ev.target.getAttribute('data-tooltip');
+    tooltip.style.left = Math.min(
+        ev.target.getBoundingClientRect().left - tooltip.clientWidth/2 + ev.target.clientWidth/2,
+        document.body.clientWidth - tooltip.clientWidth - 8
+    ) + "px";
+    tooltip_pointer.style.left = (ev.target.getBoundingClientRect().left + ev.target.clientWidth/2 - 3) + "px";
+    if(ev.target.getBoundingClientRect().top <= tooltip.clientHeight + 30)
+    {
+        tooltip.style.top = (ev.target.getBoundingClientRect().top + ev.target.clientHeight + 3) + "px";
+        tooltip_pointer.style.top = (ev.target.getBoundingClientRect().top + ev.target.clientHeight) + "px";
+        tooltip_pointer.style.rotate = "135deg";
+    }
+    else
+    {
+        tooltip.style.top = 
+            (ev.target.getBoundingClientRect().top - ev.target.clientHeight/2 - tooltip.clientHeight + 2) + "px";
+        tooltip_pointer.style.top = 
+        (ev.target.getBoundingClientRect().top - ev.target.clientHeight/2 + 1) + "px";
+        tooltip_pointer.style.rotate = "-45deg";
+    }
+    tooltip.classList.add('show');
+    tooltip_pointer.classList.add('show');
+}
+
+function hideTooltip(ev)
+{
+    tooltip.classList.remove('show');
+    tooltip_pointer.classList.remove('show');
 }
 
 function switchLightMode(ev)
@@ -103,13 +112,14 @@ function switchLightMode(ev)
 
 function openSection(link)
 {
-    document.querySelector('.nav-item.active').classList.remove('active');
-    document.querySelector('.nav-item[data-section='+link+']').classList.add('active');
+    document.querySelector('.nav-item.active')?.classList.remove('active');
+    document.querySelector('.nav-item[data-section='+link+']')?.classList.add('active');
     section = link;
     link = './content/' + section + language + '.html';
     const request = new XMLHttpRequest();
     request.onload = function() {
         document.getElementById('page-content').innerHTML = this.responseText;
+        assignateTooltips();
     }
     request.onerror = function(e){console.log(e)}
     request.open('GET', link, false);
