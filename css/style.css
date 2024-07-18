@@ -320,18 +320,17 @@ a:hover{
     text-decoration: none;
     height: -webkit-fill-available;
     height: -moz-available;
-    max-height: 72vh;
+    height: 72vh;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     transition: .2s;
     cursor: pointer;
     overflow: hidden;
 }
 
 .game-card:hover{
-    box-shadow: 0px 0px 10px 3px var(--border_color), 
-        0px 0px 5px 1px inset var(--border_color);
+    color: currentColor;
 }
 
 .game-gif{
@@ -341,21 +340,21 @@ a:hover{
     border-radius: 5px;
     transform: scale(1);
     transition: .3s;
+    margin-bottom: -35%;
 }
 
 .game-card:hover .game-gif{
+    margin-bottom: 0%;
     transform: scale(1.06);
 }
 
 .game-title{
-    margin: 0px;
-    font-size: 1.6em;
+    margin: 0px 0px 5px;
+    font-size: 2em;
     position: relative;
     width: fit-content;
-}
-
-.game-description {
-    margin: 0px;
+    color: var(--contrast_color);
+    background-color: var(--bg_color);
 }
 
 .scrollable{
@@ -386,6 +385,13 @@ a:hover{
 
 .game-card:hover .game-title::after{
     width: 100%;
+}
+
+.game-description{
+    margin-top: -5px;
+    padding-top: 5px;
+    background-color: var(--bg_color);
+    z-index: 2;
 }
 
 .d-none{
