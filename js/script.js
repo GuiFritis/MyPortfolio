@@ -72,16 +72,16 @@ function showTooltip(ev)
     tooltip_pointer.style.left = (ev.target.getBoundingClientRect().left + ev.target.clientWidth/2 - 3) + "px";
     if(ev.target.getBoundingClientRect().top <= tooltip.clientHeight + 30)
     {
-        tooltip.style.top = (ev.target.getBoundingClientRect().top + ev.target.clientHeight + 3) + "px";
-        tooltip_pointer.style.top = (ev.target.getBoundingClientRect().top + ev.target.clientHeight) + "px";
+        tooltip.style.top = (ev.target.getBoundingClientRect().top + ev.target.clientHeight + 4) + "px";
+        tooltip_pointer.style.top = (ev.target.getBoundingClientRect().top + ev.target.clientHeight + 1) + "px";
         tooltip_pointer.style.rotate = "135deg";
     }
     else
     {
         tooltip.style.top = 
-            (ev.target.getBoundingClientRect().top - ev.target.clientHeight/2 - tooltip.clientHeight + 2) + "px";
+            (ev.target.getBoundingClientRect().top - ev.target.clientHeight/2 - tooltip.clientHeight + 1) + "px";
         tooltip_pointer.style.top = 
-        (ev.target.getBoundingClientRect().top - ev.target.clientHeight/2 + 1) + "px";
+        (ev.target.getBoundingClientRect().top - ev.target.clientHeight/2) + "px";
         tooltip_pointer.style.rotate = "-45deg";
     }
     tooltip.classList.add('show');

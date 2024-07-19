@@ -309,7 +309,7 @@ a:hover{
 
 .games{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
     align-items: center;
     padding: 10px 0px;
@@ -318,43 +318,32 @@ a:hover{
 .game-card{
     color: var(--text_color);
     text-decoration: none;
-    height: -webkit-fill-available;
-    height: -moz-available;
-    height: 72vh;
+    height: 60vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0px;
     transition: .2s;
-    cursor: pointer;
     overflow: hidden;
-}
-
-.game-card:hover{
-    color: currentColor;
+    position: relative;
+    padding: 0px;
 }
 
 .game-gif{
+    height: 45%;
     width: 100%;
-    max-height: 300px;
     align-self: center;
-    border-radius: 5px;
-    transform: scale(1);
+    scale: 1;
+    object-fit: cover;
     transition: .3s;
-    margin-bottom: -35%;
-}
-
-.game-card:hover .game-gif{
-    margin-bottom: 0%;
-    transform: scale(1.06);
 }
 
 .game-title{
-    margin: 0px 0px 5px;
+    margin: 0px 20px 5px;
     font-size: 2em;
     position: relative;
     width: fit-content;
     color: var(--contrast_color);
-    background-color: var(--bg_color);
 }
 
 .scrollable{
@@ -383,15 +372,26 @@ a:hover{
     transition: .3s;
 }
 
-.game-card:hover .game-title::after{
-    width: 100%;
+.game-description{
+    margin: 0px 20px 20px;
 }
 
-.game-description{
-    margin-top: -5px;
-    padding-top: 5px;
-    background-color: var(--bg_color);
-    z-index: 2;
+.game-description > ul{
+    margin: 0px;
+    line-height: 1.4em;
+}
+
+.game-description > ul ul{
+    padding-left: 1.5em;
+}
+
+.game-links{
+    border-radius: 50px;
+    background-color: var(--bg_secondary);
+    padding: 2px 5px;
+    position: absolute;
+    top: 38%;
+    right: 10px;
 }
 
 .d-none{
