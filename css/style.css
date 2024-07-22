@@ -81,6 +81,10 @@ a:hover{
     margin-bottom: 5px !important;
 }
 
+.mt-1em{
+    margin-top: 1em;
+}
+
 .contrast{
     color: var(--contrast_color);
 }
