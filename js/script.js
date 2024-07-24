@@ -1,6 +1,6 @@
 const url_params = new URLSearchParams(window.location.search);
 var section = url_params.has('section')?url_params.get('section'):'landing_page';
-var mode = url_params.has('mode')?url_params.has('mode'):
+var mode = url_params.has('mode')?url_params.get('mode'):
     (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
 const language = url_params.has('language')?url_params.get('language'):'';
 const tooltip = document.createElement('div');
@@ -17,7 +17,7 @@ function loadTheme()
 {
     if(mode == 'light')
     {
-        document.getElementById('theme-switch-checkbox').setAttribute('checked', true);
+        document.getElementById('theme-switch-checkbox').checked = true;
         document.body.classList.add('light');
         document.body.classList.add('light');
     }
@@ -108,6 +108,7 @@ function switchLightMode(ev)
         document.body.classList.add('dark');
         document.body.classList.remove('light');
     }
+    addHistory();
 }
 
 function openSection(link)
@@ -118,12 +119,19 @@ function openSection(link)
     link = './content/' + section + language + '.html';
     const request = new XMLHttpRequest();
     request.onload = function() {
+        document.getElementById("switch_mobile_menu").checked = false;
         document.getElementById('page-content').innerHTML = this.responseText;
         assignateTooltips();
+        addHistory();
     }
     request.onerror = function(e){console.log(e)}
     request.open('GET', link, false);
     request.send();
+}
+
+function addHistory()
+{
+    history.pushState({page:1}, "section", `?mode=${mode}&section=${section}&language=${language}`);
 }
 
 function switchLanguage(lang)
