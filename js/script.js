@@ -26,6 +26,7 @@ function loadTheme()
         document.body.classList.add('dark');
     }
     document.getElementById('theme-switch-checkbox').addEventListener("change", switchLightMode);
+    document.getElementById("favicon").href = "media/favicon_" + mode + ".png";
 }
 
 function loadDropdowns()
@@ -109,6 +110,7 @@ function switchLightMode(ev)
         document.body.classList.remove('light');
     }
     addHistory();
+    document.getElementById("favicon").href = "media/favicon_" + mode + ".png";
 }
 
 function openSection(link)

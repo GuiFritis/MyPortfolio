@@ -632,7 +632,8 @@ a:hover{
 
 .landing-img{
     height: 50vh;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .landing-img > img{
