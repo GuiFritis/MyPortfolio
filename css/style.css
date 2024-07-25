@@ -170,7 +170,7 @@ a:hover{
     display: block;
     height: 5px;
     width: 5px;
-    position: absolute;
+    position: fixed;
     background-color: var(--bg_secondary);
     border: solid var(--border_color);
     border-width: 0px 0px 1px 1px;
@@ -346,8 +346,15 @@ a:hover{
     margin: 0px 20px 5px;
     font-size: 2em;
     position: relative;
-    width: fit-content;
+    display: block; 
     color: var(--contrast_color);
+    min-height: 1.1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 .scrollable{
@@ -364,16 +371,6 @@ a:hover{
 .scrollable::-webkit-scrollbar-thumb{
     background-color: var(--text_color);
     border-radius: 10px;
-}
-
-.game-card .game-title::after{
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0px;
-    border-top: 2px solid currentColor;
-    width: 0%;
-    transition: .3s;
 }
 
 .game-description{
