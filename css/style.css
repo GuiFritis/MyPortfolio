@@ -391,8 +391,10 @@ a:hover{
     background-color: var(--bg_secondary);
     padding: 2px 5px;
     position: absolute;
-    top: 38%;
+    opacity: .9;
+    top: calc(45% - 40px);
     right: 10px;
+    font-size: 1.5em;
 }
 
 .d-none{
