@@ -325,6 +325,7 @@ a:hover{
     text-decoration: none;
     height: 60vh;
     width: 100%;
+    max-width: 380px;
     display: flex;
     flex-direction: column;
     gap: 0px;
@@ -332,15 +333,40 @@ a:hover{
     overflow: hidden;
     position: relative;
     padding: 0px;
+    margin: auto;
 }
 
-.game-gif{
+.game-image{
     height: 45%;
     width: 100%;
     align-self: center;
     scale: 1;
-    object-fit: cover;
     transition: .3s;
+}
+
+.game-image > img, .game-image > video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    margin: auto;
+    transition: .3s;
+}
+
+.game-image > video {
+    opacity: 0;
+    translate: 0% -102%;
+}
+
+.game-image > img{
+    opacity: 1;
+}
+
+.game-image.on-view video {
+    opacity: 1;
+}
+
+.game-image.on-view img {
+    opacity: 0;
 }
 
 .game-title{

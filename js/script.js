@@ -16,11 +16,15 @@ window.addEventListener('load', (event) => {
     createTooltip();
     openSection();
     assignateTooltips();
+});
+
+
+window.addEventListener('scroll', (event) => {
     playVideos();
 });
 
-window.addEventListener('focus', () => {
-});
+document.querySelectorAll('video').forEach((el,id) => el.addEventListener('mouseover', unmuteVide));
+document.querySelectorAll('video').forEach((el,id) => el.addEventListener('mouseout', muteVideo));
 
 function loadTheme()
 {
@@ -141,13 +145,29 @@ function switchLanguage(lang)
     document.location.href=`index${lang}.html?mode=${mode}&language=${lang}#${section}`;
 }
 
+function checkVisible(elm, offset) {
+    var rect = elm.getBoundingClientRect();
+    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    return !(rect.bottom < -offset || rect.top - viewHeight >= offset);
+}
+
 function playVideos()
 {
     document.querySelectorAll("video").forEach((element, id) => {
-        if(element.paused) {
+        if(checkVisible(element, -230)) {
+            element.parentElement.classList.add("on-view");
             element.play();
+        } else {
+            element.parentElement.classList.remove("on-view");
+            element.pause();
         }
-        element.volume = 0;
     });
+}
 
+function unmuteVide(event){
+    event.target.muted = false;
+}
+
+function muteVideo(){
+    event.target.muted = true;
 }
