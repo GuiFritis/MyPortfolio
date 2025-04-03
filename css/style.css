@@ -9,6 +9,7 @@
     --shadow_color: #fdf5ff27;
     --contrast_color: #a692ff;
     --contrast_color_2: #8569ff;
+    --contrast_color_3: #6d4bff;
     --btn_shadow: #8569ff66;
 }
 
@@ -30,6 +31,7 @@ body.light{
     --shadow_color: #19191a1a;
     --contrast_color: #0a8f67;
     --contrast_color_2: #1faf84;
+    --contrast_color_3: #38daa9;
     --btn_shadow: #1faf8466;
 }
 
@@ -43,11 +45,10 @@ body.light .theme-dark{
 }
 
 body{
-    margin: 0px;
+    margin: 0px 4em 30px;
     font-family: Inter;
     background-color: var(--bg_color);
     color: var(--text_color);
-    margin-bottom: 30px;
 }
 
 ::-webkit-scrollbar{
@@ -397,6 +398,44 @@ a:hover{
     font-size: 1.5em;
 }
 
+.skills-slider{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1em 0;
+    margin: -1em 0;
+}
+
+.skill{
+    position: relative;
+    padding-bottom: .7em;
+    transition: .3s;
+}
+
+.skill:hover{
+    scale: 1.2;
+}
+
+.skill > svg{
+    height: 4em;
+    transition: .3s;
+}
+
+.skill > svg:only-child{
+    height: 5em;
+}
+
+.skill > span{
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 1em;
+}
+
 .d-none{
     display: none;
 }
@@ -407,9 +446,9 @@ a:hover{
     align-items: center;
     justify-content: space-between;
     margin: auto;
-    height: 60px;
-    width: calc(100vw - 40px);
-    padding: 0 20px;
+    height: 70px;
+    width: calc(100vw - 10em);
+    padding: 0 5em;
     background-color: var(--bg_color);
     color: var(--text_color);
     box-shadow: 0 2px 15px var(--shadow_color);
@@ -424,6 +463,10 @@ a:hover{
     justify-content: end;
     align-items: center;
     gap: 1.5em;
+}
+
+.header-info > h1, .header-info > h4{
+    margin: 0px;
 }
 
 /* HEADER > NAV BAR */
@@ -556,20 +599,16 @@ a:hover{
 /* LANDING PAGE */
 .landing-section{
     padding: 30px 5vw;
-    height: calc(99vh - 130px);
+    height: calc(99vh - 280px);
 }
 
 .grid-landing{
     display: grid;
-    grid-template-columns: 4fr 3fr;
+    grid-template-columns: 1fr 3fr;
     gap: 5vw;
     align-items: center;
     align-content: center;
     height: 100%;
-}
-
-.text-landing > h2{
-    margin-top: 0px;
 }
 
 .btn-group-flex{
@@ -643,13 +682,6 @@ a:hover{
 }
 
 @media only screen and (max-width: 770px) {
-
-    .main-title{
-        letter-spacing: normal;
-        margin: 20px 0px 40px;
-        font-size: clamp(1.7em, 6.5vw, 2.5em);
-    }
-
     .presentation{
         width: 100%;
     }    
@@ -662,6 +694,10 @@ a:hover{
     .page-header{
         padding: 0px 20px;
         width: calc(100vw - 40px);
+    }
+
+    .header-info > h1{
+        font-size: clamp(1.3em, 2em, 5vw);
     }
 
     nav{

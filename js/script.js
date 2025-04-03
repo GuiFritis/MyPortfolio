@@ -1,16 +1,25 @@
 const url_params = new URLSearchParams(window.location.search);
-var section = url_params.has('section')?url_params.get('section'):'landing_page';
+if(url_params.has('section'))
+{
+    window.location.hash = "#"+url_params.get('section');
+}
 var mode = url_params.has('mode')?url_params.get('mode'):
     (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
 const language = url_params.has('language')?url_params.get('language'):'';
 const tooltip = document.createElement('div');
 const tooltip_pointer = document.createElement('div');
 
+
 window.addEventListener('load', (event) => {
     loadTheme();
     loadDropdowns();
     createTooltip();
-    openSection(section);
+    openSection();
+    assignateTooltips();
+    playVideos();
+});
+
+window.addEventListener('focus', () => {
 });
 
 function loadTheme()
@@ -113,30 +122,32 @@ function switchLightMode(ev)
     document.getElementById("favicon").href = "media/favicon_" + mode + ".png";
 }
 
-function openSection(link)
+function openSection()
 {
-    document.querySelector('.nav-item.active')?.classList.remove('active');
-    document.querySelector('.nav-item[data-section='+link+']')?.classList.add('active');
-    section = link;
-    link = './content/' + section + language + '.html';
-    const request = new XMLHttpRequest();
-    request.onload = function() {
-        document.getElementById("switch_mobile_menu").checked = false;
-        document.getElementById('page-content').innerHTML = this.responseText;
-        assignateTooltips();
-        addHistory();
-    }
-    request.onerror = function(e){console.log(e)}
-    request.open('GET', link, false);
-    request.send();
+    let section = window.location.hash.substring(1);
+    document.getElementById(section)?.scrollIntoView({ 
+        behavior: "smooth" 
+    });
 }
 
 function addHistory()
 {
-    history.pushState({page:1}, "section", `?mode=${mode}&section=${section}&language=${language}`);
+    history.pushState({page:1}, "section", `?mode=${mode}&language=${language}`);
 }
 
 function switchLanguage(lang)
 {
-    document.location.href=`index${lang}.html?mode=${mode}&section=${section}&language=${lang}`;
+    let section = window.location.hash.substring(1);
+    document.location.href=`index${lang}.html?mode=${mode}&language=${lang}#${section}`;
+}
+
+function playVideos()
+{
+    document.querySelectorAll("video").forEach((element, id) => {
+        if(element.paused) {
+            element.play();
+        }
+        element.volume = 0;
+    });
+
 }
