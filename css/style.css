@@ -342,6 +342,7 @@ a:hover{
     align-self: center;
     scale: 1;
     transition: .3s;
+    position: relative;
 }
 
 .game-image > img, .game-image > video{
@@ -367,6 +368,46 @@ a:hover{
 
 .game-image.on-view img {
     opacity: 0;
+}
+
+.game-links{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    gap: 2px;
+    border-radius: 50%;
+    background-color: var(--bg_secondary);
+    padding: 2px 5px;
+    position: absolute;
+    opacity: .5;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    transition: .3s;
+    width: .4em;
+    overflow: hidden;
+}
+
+.game-card:hover .game-links{
+    opacity: .9;
+    width: calc(3em + 8px);
+    border-radius: 50px;
+}
+
+.audio-control > input{
+    display: none;
+}
+
+.audio-control > span{
+    display: none;
+}
+
+.audio-control > input:checked ~ .mute{
+    display: inline-block;
+}
+
+.audio-control > input:not(:checked) ~ .unmute{
+    display: inline-block;
 }
 
 .game-title{
@@ -411,17 +452,6 @@ a:hover{
 
 .game-description > ul ul{
     padding-left: 1.5em;
-}
-
-.game-links{
-    border-radius: 50px;
-    background-color: var(--bg_secondary);
-    padding: 2px 5px;
-    position: absolute;
-    opacity: .9;
-    top: calc(45% - 40px);
-    right: 10px;
-    font-size: 1.5em;
 }
 
 .skills-slider{

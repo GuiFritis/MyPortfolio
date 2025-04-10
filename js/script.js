@@ -16,6 +16,7 @@ window.addEventListener('load', (event) => {
     createTooltip();
     openSection();
     assignateTooltips();
+    playVideos();
 });
 
 
@@ -23,8 +24,7 @@ window.addEventListener('scroll', (event) => {
     playVideos();
 });
 
-document.querySelectorAll('video').forEach((el,id) => el.addEventListener('mouseover', unmuteVide));
-document.querySelectorAll('video').forEach((el,id) => el.addEventListener('mouseout', muteVideo));
+document.querySelectorAll('.audio-control > input').forEach((el,id) => el.addEventListener('change', unmuteVideo));
 
 function loadTheme()
 {
@@ -164,10 +164,16 @@ function playVideos()
     });
 }
 
-function unmuteVide(event){
-    event.target.muted = false;
-}
-
-function muteVideo(){
-    event.target.muted = true;
+function unmuteVideo(event){
+    if(!event.target.checked){
+        let ev = new Event("change");
+        document.querySelectorAll('.audio-control > input').forEach((el,id) => {
+            if(el != event.target){
+                el.checked = true;
+                el.dispatchEvent(ev);
+            } 
+        });
+    }
+    event.target.parentElement.setAttribute("data-tooltip", event.target.checked?"Ativar som":"Mutar som");
+    event.target.parentElement.parentElement.previousSibling.previousSibling.muted = event.target.checked;
 }
