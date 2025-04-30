@@ -65,7 +65,7 @@ function createTooltip()
 
 function assignateTooltips()
 {
-    const tooltips_callers = document.querySelectorAll("[data-tooltip]");
+    const tooltips_callers = document.querySelectorAll("[data-tooltip],[data-tooltip-pt]");
     for (let i = 0; i < tooltips_callers.length; i++) {  
         const element = tooltips_callers[i];   
         element.removeEventListener('mouseenter', showTooltip);
@@ -78,7 +78,15 @@ function assignateTooltips()
 
 function showTooltip(ev)
 {
-    tooltip.innerText = ev.target.getAttribute('data-tooltip');
+    if(ev.target.hasAttribute('data-tooltip')) {
+        tooltip.innerText = ev.target.getAttribute('data-tooltip');
+    } else {
+        if(document.body.classList.contains("pt")) {
+            tooltip.innerText = ev.target.getAttribute('data-tooltip-pt');
+        } else {
+            tooltip.innerText = ev.target.getAttribute('data-tooltip-en');
+        }
+    }
     tooltip.style.left = Math.min(
         ev.target.getBoundingClientRect().left - tooltip.clientWidth/2 + ev.target.clientWidth/2,
         document.body.clientWidth - tooltip.clientWidth - 8

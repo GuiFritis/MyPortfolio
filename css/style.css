@@ -51,6 +51,11 @@ body{
     color: var(--text_color);
 }
 
+body.pt .en,
+body.en .pt {
+    display: none;
+}
+
 ::-webkit-scrollbar{
     background-color: var(--shadow_color);
     border-radius: 10px;
@@ -375,7 +380,7 @@ a:hover{
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     gap: 2px;
-    border-radius: 50%;
+    border-radius: 50px;
     background-color: var(--bg_secondary);
     padding: 2px 5px;
     position: absolute;
@@ -384,14 +389,11 @@ a:hover{
     right: 10px;
     font-size: 1.5em;
     transition: .3s;
-    width: .4em;
     overflow: hidden;
 }
 
 .game-card:hover .game-links{
-    opacity: .9;
-    width: calc(3em + 8px);
-    border-radius: 50px;
+    opacity: 1;
 }
 
 .audio-control > input{
@@ -443,6 +445,7 @@ a:hover{
 
 .game-description{
     margin: 0px 20px 20px;
+    z-index: 2;
 }
 
 .game-description > ul{

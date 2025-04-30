@@ -10,7 +10,8 @@
 <body>
     <header class="page-header">
         <div class="header-info clickable" onclick="openSection('landing_page')">            
-            <h1>Programador de Jogos</h1>
+            <h1 class="pt">Programador de Jogos</h1>
+            <h1 class="en">Game Programmer</h1>
             <h4>Guilherme Fritis</h4>
         </div>
         <nav>
@@ -23,24 +24,31 @@
             <div class="right-side-header">
                 <ul class="navbar">
                     <li><a class="nav-item" href="#" onclick="openSection('games');" data-section="games">
-                        <span class="bi bi-controller"></span> Jogos
+                        <span class="bi bi-controller"></span> 
+                        <span class="pt">Jogos</span>
+                        <span class="en">Games</span>
                     </a></li>
                     <li><a class="nav-item active" href="#" onclick="openSection('about_me');" data-section="about_me">
-                        <span class="bi bi-person"></span> Sobre mim
+                        <span class="bi bi-person"></span> 
+                        <span class="pt">Sobre mim</span>
+                        <span class="en">About me</span>
                     </a></li>
-                    <li><a class="nav-item" href="media/Currículo Guilherme Fritis.pdf" >
+                    <li class="pt"><a class="nav-item" href="media/Currículo Guilherme Fritis.pdf" >
                         <span class="bi bi-download"></span> Currículo
+                    </a></li>
+                    <li class="en"><a class="nav-item" href="media/Resume Guilherme Fritis.pdf" >
+                        <span class="bi bi-download"></span> Resume
                     </a></li>
                     <!-- <li><a class="nav-item" href="#" onclick="openSection('./content/web_projects.html')">Projetos web</a></li> -->
                 </ul>
                 <div class="dropdown dropdown-language opens-right">
-                    <span class="dropdown-link" data-tooltip="Switch language">
+                    <span class="dropdown-link" data-tooltip-pt="Switch language">
                         <span class="flag">
                             <img src="./media/flag_brazil.png" alt="Bandeira do Brasil">
                         </span>
                     </span>
                     <div class="dropdown-menu text-center">
-                        <a href="javascript:;" onclick="switchLanguage('');" class="flag" data-tooltip="See this page in english">
+                        <a href="javascript:;" onclick="switchLanguage('');" class="flag" data-tooltip-pt="See this page in english">
                             <img src="./media/flag_uk.png" alt="Bandeira do Reino Unido">
                         </a>
                     </div>
@@ -55,32 +63,38 @@
                     <img src="" alt="">
                 </div>
                 <div class="greetings">
-                    <p>
+                    <p class="pt">
                         Desenvolvedor de jogos com experiência em Unity, especializado no desenvolvimento de sistemas e gameplay, 
                         escrevendo código performático, <br/>
                         eficiente e limpo.
                     </p>
+                    <p class="en">
+                        Game developer with experience in Unity, specialized in systems and gameplay development,  
+                        writing performant, <br/>
+                        efficient, and clean code.
+                    </p>
                 </div>
             </div>
         </section>
-        <section id="released-projects" class="section-padded">
-            <h2 class="content-title">Jogos</h2>
+        <section id="games" class="section-padded">
+            <h2 class="content-title pt">Jogos</h2>
+            <h2 class="content-title en">Games</h2>
             <div class="games">
                 <div class="game-card card">  
                     <div class="game-image">
-                        <img src="media/images/CardsAreTheOdds.png" alt="Spash art do jogo">
+                        <img src="media/images/CardsAreTheOdds.png" alt="Spash art do jogo/Game's spash art">
                         <video loop muted="muted" autoplay="true">
                             <source src="media/videos/CardsAreTheOdds.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="game-links">
-                            <a href="https://guifritis.itch.io/cards-are-the-odds" target="_blank" data-tooltip="Jogar no itch.io">
+                            <a href="https://guifritis.itch.io/cards-are-the-odds" target="_blank" data-tooltip-pt="Jogar no itch.io" data-tooltip-en="Play on itch.io">
                                 <span class="bi bi-play-fill"></span>
                             </a>
-                            <a href="https://github.com/GuiFritis/Cards_Are_The_Odds" target="_blank" data-tooltip="Ver no git hub">
+                            <a href="https://github.com/GuiFritis/Cards_Are_The_Odds" target="_blank" data-tooltip-pt="Ver no github" data-tooltip-en="See on github">
                                 <span class="bi bi-github"></span>
                             </a>                  
-                            <label class="audio-control" data-tooltip="Habilitar/desabilitar som">
+                            <label class="audio-control" data-tooltip-pt="Habilitar/desabilitar som" data-tooltip-en="Mute/unmute">
                                 <input type="checkbox" checked>
                                 <span class="bi bi-volume-up unmute"></span>
                                 <span class="bi bi-volume-mute mute"></span>
@@ -89,32 +103,41 @@
                     </div>   
                     <h3 class="game-title" data-tooltip="Cards are the odds">Cards are the odds</h3>
                     <div class="scrollable game-description">
-                        <ul>
+                        <ul class="pt">
                             <li><b>Gênero</b>: Cards, Turn-based</li>
                             <li><b>Engine</b>: Unity</li>
-                            <li><b>Plataformas</b>: Navegador Web (itch.io), Windows</li>
+                            <li><b>Plataformas</b>: Navegador Web (itch.io)</li>
                             <li>
                                 Esse jogo foi desenvolvido em uma equipe de 4 pessoas para a <b>Backeys Game Jam 2025.1</b><br/>
                                 Eu fui responsável pelo <b>game design</b> e <b>programação</b> do projeto.
+                            </li>
+                        </ul>
+                        <ul class="en">
+                            <li><b>Genre</b>: Cards, Turn-based</li>
+                            <li><b>Engine</b>: Unity</li>
+                            <li><b>Platforms</b>: Web browser (itch.io)</li>
+                            <li>
+                                This game was developed by a team of 4 people for the <b>Brackeys Game Jam 2025.1</b><br/>
+                                I was responsible for the <b>game design</b> and <b>programming</b> of the project.
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="game-card card">
                     <div class="game-image">
-                        <img src="media/images/BubbleGun.png" alt="Spash art do jogo">
+                        <img src="media/images/BubbleGun.png" alt="Spash art do jogo/Game's spash art">
                         <video loop muted="muted" autoplay="true">
                             <source src="media/videos/BubbleGun.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="game-links">
-                            <a href="https://guifritis.itch.io/bubble-gun" target="_blank" data-tooltip="Jogar no itch.io">
+                            <a href="https://guifritis.itch.io/bubble-gun" target="_blank" data-tooltip-pt="Jogar no itch.io" data-tooltip-en="Play on itch.io">
                                 <span class="bi bi-play-fill"></span>
                             </a>
-                            <a href="https://github.com/GuiFritis/GGJ25" target="_blank" data-tooltip="Ver no git hub">
+                            <a href="https://github.com/GuiFritis/GGJ25" target="_blank" data-tooltip-pt="Ver no github" data-tooltip-en="See on github">
                                 <span class="bi bi-github"></span>
                             </a>           
-                            <label class="audio-control" data-tooltip="Habilitar/desabilitar som">
+                            <label class="audio-control" data-tooltip-pt="Habilitar/desabilitar som" data-tooltip-en="Mute/unmute">
                                 <input type="checkbox" checked>
                                 <span class="bi bi-volume-up unmute"></span>
                                 <span class="bi bi-volume-mute mute"></span>
@@ -123,7 +146,7 @@
                     </div>
                     <h3 class="game-title" data-tooltip="Bubble Gun">Bubble Gun</h3>
                     <div class="scrollable game-description">
-                        <ul>
+                        <ul class="pt">
                             <li><b>Gênero</b>: 2D Top Down, PvP, Local-coop</li>
                             <li><b>Engine</b>: Unity</li>
                             <li><b>Plataformas</b>: Navegador Web (itch.io), Windows</li>
@@ -132,19 +155,41 @@
                                 Eu fui responsável pelo <b>gerenciamente do projeto</b> enquanto também apoiei <b>game design</b> e <b>programação</b>.
                             </li>
                         </ul>
+                        <ul class="en">
+                            <li><b>Genre</b>: 2D Top Down, PvP, Local-coop</li>
+                            <li><b>Engine</b>: Unity</li>
+                            <li><b>Platforms</b>: Web Browser (itch.io), Windows</li>
+                            <li>
+                                This game was developed by a team of 7 people for the <b>Global Game Jam 2025 in just 48 hours</b><br/>
+                                I was responsible for <b>project management</b> while also contributing to <b>game design</b> and <b>programming</b>.
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="game-card card">
                     <div class="game-image">
-                        <img src="media/images/ChannelOfMonsters.png" alt="Spash art do jogo">
+                        <img src="media/images/ChannelOfMonsters.png" alt="Spash art do jogo/Game's spash art">
                         <video loop muted="muted" autoplay="true">
                             <source src="media/videos/ChannelOfMonsters.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                        <div class="game-links">
+                            <a href="https://guifritis.itch.io/channel-of-monsters" target="_blank" data-tooltip-pt="Jogar no itch.io" data-tooltip-en="Play on itch.io">
+                                <span class="bi bi-play-fill"></span>
+                            </a>
+                            <a href="https://github.com/GuiFritis/ChannelOfMonsters" target="_blank" data-tooltip-pt="Ver no github" data-tooltip-en="See on github">
+                                <span class="bi bi-github"></span>
+                            </a>     
+                            <label class="audio-control" data-tooltip-pt="Habilitar/desabilitar som" data-tooltip-en="Mute/unmute">
+                                <input type="checkbox" checked>
+                                <span class="bi bi-volume-up unmute"></span>
+                                <span class="bi bi-volume-mute mute"></span>
+                            </label>
+                        </div>
                     </div>
                     <h3 class="game-title" data-tooltip="Channel of Monsters">Channel of Monsters</h3>
                     <div class="scrollable game-description">
-                        <ul>
+                        <ul class="pt">
                             <li><b>Gênero</b>: Top-down, Roguelite, Mobile</li>
                             <li><b>Engine</b>: Unity</li>
                             <li><b>Plataformas</b>: Navegador Web (itch.io), Android</li>
@@ -154,27 +199,42 @@
                                 Além disso após a game jam, adaptei todo o jogo para <b>android</b>.
                             </li>
                         </ul>
-                    </div>
-                    <div class="game-links">
-                        <a href="https://guifritis.itch.io/channel-of-monsters" target="_blank" data-tooltip="Jogar no itch.io">
-                            <span class="bi bi-play-fill"></span>
-                        </a>
-                        <a href="https://github.com/GuiFritis/ChannelOfMonsters" target="_blank" data-tooltip="Ver jogo no git hub">
-                            <span class="bi bi-github"></span>
-                        </a>
+                        <ul class="en">
+                            <li><b>Genre</b>: Top-down, Roguelite, Mobile</li>
+                            <li><b>Engine</b>: Unity</li>
+                            <li><b>Platforms</b>: Web Browser (itch.io), Android</li>
+                            <li>
+                                This game was developed for the <b>Brackeys Game Jam 2024.2</b> and ranked <b>83rd place among over 1,400 submissions</b>.<br/>
+                                All of the <b>game design</b> and <b>development</b> were done by me.<br/>
+                                Additionally, after the game jam, I adapted the entire game for <b>Android</b>.
+                            </li>
+                        </ul>
                     </div>
                 </div>        
                 <div class="game-card card">
                     <div class="game-image">
-                        <img src="media/images/Underground.png" alt="Spash art do jogo">
+                        <img src="media/images/Underground.png" alt="Spash art do jogo/Game's spash art">
                         <video loop muted="muted" autoplay="true">
                             <source src="media/videos/Underground.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                        <div class="game-links">
+                            <a href="https://guifritis.itch.io/underground" target="_blank" data-tooltip-pt="Jogar no itch.io" data-tooltip-en="Play on itch.io">
+                                <span class="bi bi-play-fill"></span>
+                            </a>
+                            <a href="https://github.com/GuiFritis/Underground" target="_blank" data-tooltip-pt="Ver no github" data-tooltip-en="See on github">
+                                <span class="bi bi-github"></span>
+                            </a>     
+                            <label class="audio-control" data-tooltip-pt="Habilitar/desabilitar som" data-tooltip-en="Mute/unmute">
+                                <input type="checkbox" checked>
+                                <span class="bi bi-volume-up unmute"></span>
+                                <span class="bi bi-volume-mute mute"></span>
+                            </label>
+                        </div>
                     </div>
                     <h3 class="game-title" data-tooltip="Underground">Underground</h3>
                     <div class="scrollable game-description">
-                        <ul>
+                        <ul class="pt">
                             <li><b>Gênero</b>: Plataforma 2D, Roguelite</li>
                             <li><b>Engine</b>: Unity</li>
                             <li><b>Plataformas</b>: Navegador Web (itch.io)</li>
@@ -183,126 +243,172 @@
                                 Todo o <b>game design</b> e <b>desenvolvimento</b> foram feitos por mim.
                             </li>
                         </ul>
-                    </div>
-                    <div class="game-links">
-                        <a href="https://guifritis.itch.io/underground" target="_blank" data-tooltip="Jogar no itch.io">
-                            <span class="bi bi-play-fill"></span>
-                        </a>
-                        <a href="https://github.com/GuiFritis/Underground" target="_blank" data-tooltip="Ver jogo no git hub">
-                            <span class="bi bi-github"></span>
-                        </a>
+                        <ul class="en">
+                            <li><b>Genre</b>: 2D Platform, Roguelite</li>
+                            <li><b>Engine</b>: Unity</li>
+                            <li><b>Platforms</b>: Web Browser (itch.io)</li>
+                            <li>
+                                This game was developed for the <b>Brackeys Game Jam 2023.2</b> and ranked <b>170th place</b>.<br/>
+                                All of the <b>game design</b> and <b>development</b> were done by me.                                
+                            </li>
+                        </ul>
                     </div>
                 </div>        
                 <div class="game-card card">
                     <div class="game-image">
-                        <img src="media/images/Astronault.png" alt="Spash art do jogo">
+                        <img src="media/images/Astronault.png" alt="Spash art do jogo/Game's spash art">
                         <video loop muted="muted" autoplay="true">
                             <source src="media/videos/Astronault.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                        <div class="game-links">
+                            <a href="https://guifritis.itch.io/astronault-vs-slimes" target="_blank" data-tooltip-pt="Jogar no itch.io" data-tooltip-en="Play on itch.io">
+                                <span class="bi bi-play-fill"></span>
+                            </a>
+                            <a href="https://github.com/GuiFritis/MyFirst3dAdventure" target="_blank" data-tooltip-pt="Ver no github" data-tooltip-en="See on github">
+                                <span class="bi bi-github"></span>
+                            </a>     
+                            <label class="audio-control" data-tooltip-pt="Habilitar/desabilitar som" data-tooltip-en="Mute/unmute">
+                                <input type="checkbox" checked>
+                                <span class="bi bi-volume-up unmute"></span>
+                                <span class="bi bi-volume-mute mute"></span>
+                            </label>
+                        </div>
                     </div>
                     <h3 class="game-title" data-tooltip="Astronault vs Slimes 3D">Astronault vs Slimes 3D</h3>
                     <div class="scrollable game-description">
-                        <ul>
+                        <ul class="pt">
                             <li><b>Gênero</b>: Aventura, Tiro em Terceira Pessoa, Plataforma 3D</li>
                             <li><b>Engine</b>: Unity</li>
                             <li><b>Plataformas</b>: Navegador Web (itch.io)</li>
                             <li>Todo o <b>desenvolvimento</b> foi feito por mim durante o curso <b>Unity do Zero ao Pro</b>.</li>
                         </ul>
-                    </div>
-                    <div class="game-links">
-                        <a href="https://guifritis.itch.io/astronault-vs-slimes" target="_blank" data-tooltip="Jogar no itch.io">
-                            <span class="bi bi-play-fill"></span>
-                        </a>
-                        <a href="https://github.com/GuiFritis/MyFirst3dAdventure" target="_blank" data-tooltip="Ver jogo no git hub">
-                            <span class="bi bi-github"></span>
-                        </a>
+                        <ul class="en">
+                            <li><b>Genre</b>: Adventure, Third Person Shooter, 3D Platform</li>
+                            <li><b>Engine</b>: Unity</li>
+                            <li><b>Platforms</b>: Web Browser (itch.io)</li>
+                            <li>All of the <b>development</b> was done by me during the <b>Unity From Zero to Pro</b> course.</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="game-card card">
                     <div class="game-image">
-                        <img src="media/images/ShipWrecking.png" alt="Spash art do jogo">
+                        <img src="media/images/ShipWrecking.png" alt="Spash art do jogo/Game's spash art">
                         <video loop muted="muted" autoplay="true">
                             <source src="media/videos/ShipWrecking.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                        <div class="game-links">
+                            <a href="https://guifritis.itch.io/ship-wrecking" target="_blank" data-tooltip-pt="Jogar no itch.io" data-tooltip-en="Play on itch.io">
+                                <span class="bi bi-play-fill"></span>
+                            </a>
+                            <a href="https://github.com/GuiFritis/ShipWrecking" target="_blank" data-tooltip-pt="Ver no github" data-tooltip-en="See on github">
+                                <span class="bi bi-github"></span>
+                            </a>     
+                            <label class="audio-control" data-tooltip-pt="Habilitar/desabilitar som" data-tooltip-en="Mute/unmute">
+                                <input type="checkbox" checked>
+                                <span class="bi bi-volume-up unmute"></span>
+                                <span class="bi bi-volume-mute mute"></span>
+                            </label>
+                        </div>
                     </div>
                     <h3 class="game-title" data-tooltip="Ship Wrecking">Ship Wrecking</h3>
                     <div class="scrollable game-description">
-                        <ul>
+                        <ul class="pt">
                             <li><b>Gênero</b>: Roguelite, Top-down</li>
                             <li><b>Engine</b>: Unity</li>
                             <li><b>Plataformas</b>: Navegador Web (itch.io)</li>
                             <li>Todo o <b>desenvolvimento</b> foi feito por mim.</li>
                         </ul>
-                    </div>
-                    <div class="game-links">
-                        <a href="https://guifritis.itch.io/ship-wrecking" target="_blank" data-tooltip="Jogar no itch.io">
-                            <span class="bi bi-play-fill"></span>
-                        </a>
-                        <a href="https://github.com/GuiFritis/ShipWrecking" target="_blank" data-tooltip="Ver jogo no git hub">
-                            <span class="bi bi-github"></span>
-                        </a>
+                        <ul class="en">
+                            <li><b>Genre</b>: Roguelite, Top-down</li>
+                            <li><b>Engine</b>: Unity</li>
+                            <li><b>Platforms</b>: Web Browser (itch.io)</li>
+                            <li>All of the <b>development</b> was done by me.</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="game-card card">
                     <div class="game-image">
-                        <img src="media/images/Astronault2d.png" alt="Spash art do jogo">
+                        <img src="media/images/Astronault2d.png" alt="Spash art do jogo/Game's spash art">
                         <video loop muted="muted" autoplay="true">
                             <source src="media/videos/Astronault2d.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                        <div class="game-links">
+                            <a href="https://guifritis.itch.io/astronault-vs-slimes-2d" target="_blank" data-tooltip-pt="Jogar no itch.io" data-tooltip-en="Play on itch.io">
+                                <span class="bi bi-play-fill"></span>
+                            </a>
+                            <a href="https://github.com/GuiFritis/MyFirst2dPlatformer/tree/main/Assets/Art" target="_blank" data-tooltip-pt="Ver no github" data-tooltip-en="See on github">
+                                <span class="bi bi-github"></span>
+                            </a>     
+                            <label class="audio-control" data-tooltip-pt="Habilitar/desabilitar som" data-tooltip-en="Mute/unmute">
+                                <input type="checkbox" checked>
+                                <span class="bi bi-volume-up unmute"></span>
+                                <span class="bi bi-volume-mute mute"></span>
+                            </label>
+                        </div>
                     </div>
                     <h3 class="game-title" data-tooltip="Astronault vs Slimes 2D">Astronault vs Slimes 2D</h3>
                     <div class="scrollable game-description">
-                        <ul>
+                        <ul class="pt">
                             <li><b>Gênero</b>: Plataforma 2D, Tiro, Aventura</li>
                             <li><b>Engine</b>: Unity</li>
                             <li><b>Plataformas</b>: Navegador Web (itch.io)</li>
                             <li>Todo o <b>desenvolvimento</b> foi feito por mim durante o curso <b>Unity do Zero ao Pro</b>.</li>
                         </ul>
-                    </div>
-                    <div class="game-links">
-                        <a href="https://guifritis.itch.io/astronault-vs-slimes-2d" target="_blank" data-tooltip="Jogar no itch.io">
-                            <span class="bi bi-play-fill"></span>
-                        </a>
-                        <a href="https://github.com/GuiFritis/MyFirst2dPlatformer/tree/main/Assets/Art" target="_blank" data-tooltip="Ver jogo no git hub">
-                            <span class="bi bi-github"></span>
-                        </a>
+                        <ul class="en">
+                            <li><b>Genre</b>: 2D Platform, Shooter, Adventure</li>
+                            <li><b>Engine</b>: Unity</li>
+                            <li><b>Plataformas</b>: Web Browser (itch.io)</li>
+                            <li>All of the <b>development</b> was done by me during the <b>Unity From Zero to Pro</b> course.</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="game-card card">
                     <div class="game-image">
-                        <img src="media/images/MazeGame.png" alt="Spash art do jogo">
+                        <img src="media/images/MazeGame.png" alt="Spash art do jogo/Game's spash art">
                         <video loop muted="muted" autoplay="true">
                             <source src="media/videos/MazeGame.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                        <div class="game-links">
+                            <a href="https://guifritis.itch.io/maze-game" target="_blank" data-tooltip-pt="Jogar no itch.io" data-tooltip-en="Play on itch.io">
+                                <span class="bi bi-play-fill"></span>
+                            </a>
+                            <a href="https://github.com/GuiFritis/MazeGame" target="_blank" data-tooltip-pt="Ver no github" data-tooltip-en="See on github">
+                                <span class="bi bi-github"></span>
+                            </a>     
+                            <label class="audio-control" data-tooltip-pt="Habilitar/desabilitar som" data-tooltip-en="Mute/unmute">
+                                <input type="checkbox" checked>
+                                <span class="bi bi-volume-up unmute"></span>
+                                <span class="bi bi-volume-mute mute"></span>
+                            </label>
+                        </div>
                     </div>
                     <h3 class="game-title" data-tooltip="Maze Game">Maze Game</h3>
                     <div class="scrollable game-description">
-                        <ul>
+                        <ul class="pt">
                             <li><b>Gênero</b>: Exploração, Aventura, Primeira Pessoa, Quebra-cabeça</li>
                             <li><b>Engine</b>: Unreal</li>
                             <li><b>Plataformas</b>: PC (Windows)</li>
                             <li>Todo o <b>desenvolvimento</b> foi feito por mim enquanto apredia a usar <b>Unreal Engine</b>.</li>
                         </ul>
-                    </div>
-                    <div class="game-links">
-                        <a href="https://guifritis.itch.io/maze-game" target="_blank" data-tooltip="Jogar no itch.io">
-                            <span class="bi bi-play-fill"></span>
-                        </a>
-                        <a href="https://github.com/GuiFritis/MazeGame" target="_blank" data-tooltip="Ver jogo no git hub">
-                            <span class="bi bi-github"></span>
-                        </a>
+                        <ul class="en">
+                            <li><b>Genre</b>: Exploration, Adventure, First Person, Puzzle</li>
+                            <li><b>Engine</b>: Unreal</li>
+                            <li><b>Plataforms</b>: Windows</li>
+                            <li>The entire <b>game development</b> was carried out by me while learning to use <b>Unreal Engine</b>.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
         <section id="skills" class="section-padded">
-            <h1 class="content-title">Habilidades</h1>
+            <h1 class="content-title pt">Principais Habilidades</h1>
+            <h1 class="content-title en">Main Skills</h1>
             <div class="skills-slider">
-                <div class="skill" data-tooltip="C#">
+                <div class="skill" data-tooltip-pt="C#">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
                         <path fill="var(--contrast_color)" d="M22.903,3.286c0.679-0.381,1.515-0.381,2.193,0c3.355,1.883,13.451,7.551,16.807,9.434 C42.582,13.1,43,13.804,43,14.566c0,3.766,0,15.101,0,18.867c0,0.762-0.418,1.466-1.097,1.847 c-3.355,1.883-13.451,7.551-16.807,9.434c-0.679,0.381-1.515,0.381-2.193,0c-3.355-1.883-13.451-7.551-16.807-9.434 C5.418,34.899,5,34.196,5,33.434c0-3.766,0-15.101,0-18.867c0-0.762,0.418-1.466,1.097-1.847 C9.451,10.837,19.549,5.169,22.903,3.286z"></path>
                         <path fill="var(--contrast_color_3)" d="M5.304,34.404C5.038,34.048,5,33.71,5,33.255c0-3.744,0-15.014,0-18.759 c0-0.758,0.417-1.458,1.094-1.836c3.343-1.872,13.405-7.507,16.748-9.38c0.677-0.379,1.594-0.371,2.271,0.008 c3.343,1.872,13.371,7.459,16.714,9.331c0.27,0.152,0.476,0.335,0.66,0.576L5.304,34.404z"></path>
@@ -313,19 +419,19 @@
                     </svg>
                     <!-- <span>C#</span> -->
                 </div>
-                <div class="skill" data-tooltip="Unity">
+                <div class="skill" data-tooltip-pt="Unity">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
                         <path fill="var(--text_color)" d="M43,31.502V13L27,4.579v4.969c0,1.114,0.617,2.136,1.603,2.655l5.127,2.698L24,20.534	l-9.729-5.633l5.127-2.698C20.383,11.684,21,10.662,21,9.548V4.579L5,13v18.502l4.543-2.726C10.447,28.233,11,27.257,11,26.203	V19.94l10,5.789v10.911l-5.381-2.832c-0.927-0.488-2.042-0.457-2.941,0.082l-4.573,2.744L24,45l15.894-8.365l-4.573-2.744	c-0.899-0.539-2.013-0.57-2.941-0.082L27,36.641V25.729l10-5.789v6.263c0,1.054,0.553,2.03,1.457,2.572L43,31.502z"></path>
                     </svg>
                     <span>Unity</span>
                 </div>                
-                <div class="skill" data-tooltip="Git">
+                <div class="skill" data-tooltip-pt="Git">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
                         <path fill="var(--contrast_color_2)" d="M42.2,22.1L25.9,5.8C25.4,5.3,24.7,5,24,5c0,0,0,0,0,0c-0.7,0-1.4,0.3-1.9,0.8l-3.5,3.5l4.1,4.1c0.4-0.2,0.8-0.3,1.3-0.3c1.7,0,3,1.3,3,3c0,0.5-0.1,0.9-0.3,1.3l4,4c0.4-0.2,0.8-0.3,1.3-0.3c1.7,0,3,1.3,3,3s-1.3,3-3,3c-1.7,0-3-1.3-3-3c0-0.5,0.1-0.9,0.3-1.3l-4-4c-0.1,0-0.2,0.1-0.3,0.1v10.4c1.2,0.4,2,1.5,2,2.8c0,1.7-1.3,3-3,3s-3-1.3-3-3c0-1.3,0.8-2.4,2-2.8V18.8c-1.2-0.4-2-1.5-2-2.8c0-0.5,0.1-0.9,0.3-1.3l-4.1-4.1L5.8,22.1C5.3,22.6,5,23.3,5,24c0,0.7,0.3,1.4,0.8,1.9l16.3,16.3c0,0,0,0,0,0c0.5,0.5,1.2,0.8,1.9,0.8s1.4-0.3,1.9-0.8l16.3-16.3c0.5-0.5,0.8-1.2,0.8-1.9C43,23.3,42.7,22.6,42.2,22.1z"></path>
                     </svg>
                     <span>Git</span>
                 </div>
-                <div class="skill" data-tooltip="MySQL">
+                <div class="skill" data-tooltip-pt="MySQL">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
                         <path fill="var(--text_color)" d="M0.002,35.041h1.92v-7.085l2.667,6.057c0.329,0.755,0.779,1.022,1.662,1.022 s1.315-0.267,1.644-1.022l2.667-5.902v6.93h1.92v-7.258c0-0.697-0.277-1.035-0.849-1.209c-1.367-0.43-2.285-0.059-2.7,0.872 l-2.735,6.16l-2.649-6.16c-0.398-0.93-1.332-1.302-2.7-0.872C0.277,26.748,0,27.085,0,27.782v7.258H0.002z"></path>
                         <path fill="var(--text_color)" d="M13.441,29.281h1.92v4.055c-0.015,0.2,0.064,0.731,0.99,0.745c0.472,0.008,2.821,0,2.85,0v-4.8h1.92 c0.008,0,0,5.968,0,5.993c0.01,1.472-1.828,1.662-2.673,1.687h-5.006v-0.96c0.01,0,4.787,0.001,4.801,0 c1.088-0.115,0.959-0.714,0.959-0.896v-0.064H16.19c-1.67-0.015-2.735-0.751-2.747-1.59C13.441,33.373,13.479,29.317,13.441,29.281 z"></path>
@@ -337,7 +443,7 @@
                     </svg>
                     <!-- <span>MySQL</span> -->
                 </div>
-                <div class="skill" data-tooltip="HTML">
+                <div class="skill" data-tooltip-pt="HTML">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
                         <path fill="var(--contrast_color)" d="M41,5H7l3,34l14,4l14-4L41,5L41,5z"></path>
                         <path fill="var(--contrast_color_2)" d="M24 8L24 39.9 35.2 36.7 37.7 8z"></path>
@@ -346,14 +452,14 @@
                     </svg>
                     <span>HTML</span>
                 </div>
-                <div class="skill" data-tooltip="Javascript">
+                <div class="skill" data-tooltip-pt="Javascript">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
                         <path fill="var(--text_color)" d="M6,42V6h36v36H6z"></path>
                         <path fill="var(--bg_secondary)" d="M29.538 32.947c.692 1.124 1.444 2.201 3.037 2.201 1.338 0 2.04-.665 2.04-1.585 0-1.101-.726-1.492-2.198-2.133l-.807-.344c-2.329-.988-3.878-2.226-3.878-4.841 0-2.41 1.845-4.244 4.728-4.244 2.053 0 3.528.711 4.592 2.573l-2.514 1.607c-.553-.988-1.151-1.377-2.078-1.377-.946 0-1.545.597-1.545 1.377 0 .964.6 1.354 1.985 1.951l.807.344C36.452 29.645 38 30.839 38 33.523 38 36.415 35.716 38 32.65 38c-2.999 0-4.702-1.505-5.65-3.368L29.538 32.947zM17.952 33.029c.506.906 1.275 1.603 2.381 1.603 1.058 0 1.667-.418 1.667-2.043V22h3.333v11.101c0 3.367-1.953 4.899-4.805 4.899-2.577 0-4.437-1.746-5.195-3.368L17.952 33.029z"></path>
                     </svg>
                     <span>Javascript</span>
                 </div>
-                <div class="skill" data-tooltip="CSS">
+                <div class="skill" data-tooltip-pt="CSS">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
                         <path fill="var(--contrast_color_2)" d="M41,5H7l3,34l14,4l14-4L41,5L41,5z"></path>
                         <path fill="var(--contrast_color_3)" d="M24 8L24 39.9 35.2 36.7 37.7 8z"></path>
@@ -365,19 +471,20 @@
             </div>
         </section>
         <section id="contact-info" class="section-padded">
-            <h1 class="content-title">Sobre mim</h1>
+            <h1 class="content-title pt">Sobre mim</h1>
+            <h1 class="content-title en">About me</h1>
             <div class="card about-me-overview">
-                <h2 class="content-subtitle">Oi, eu sou Guilherme Fritis!</h2>
-                <h3>
-                    Sou <span class="contrast">Programador de Jogos</span>.
-                </h3>
+                <h2 class="content-subtitle pt">Oi, eu sou Guilherme Fritis!</h2>
+                <h2 class="content-subtitle en">Hi, I'm Guilherme Fritis!</h2>
+                <h3 class="pt">Sou <span class="contrast">Programador de Jogos</span>.</h3>
+                <h3 class="en">I'm a <span class="contrast">Game Programmer</span>.</h3>
                 <p>
                     Já tive a experiência de desenvolver vários jogos por conta própria, 
                     sendo responsável por todas as etapas no desenvolvimento.
                 </p>
                 <p>
-                    Tenho mais habilidade com jogos 2D usando a Unity, 
-                    mas já desenvolvi jogos 3D e tenho desenvolvi usando Unreal também.
+                    Meu ponto forte é com o desenvolvimento de jogos 2D usando a Unity, 
+                    mas também tenho experiência em jogos 3D e com a Unreal Engine.
                 </p>
                 <p>
                     Sou formado em Análise e Desenvolvimento de Sistemas, tendo trabalhado por alguns anos
@@ -391,48 +498,48 @@
                 <p>
                     Além de programar, também escrevo um pouco de música no meu tempo livre,
                     gosto bastante de arte, e acho muito prazer em poder criar obras, já consegui conectar
-                    meu gosto por jogos e música em uma experiência mobile, mas ainda não a publiquei.
+                    meu gosto por jogos e música em uma experiência mobile, mas que ainda não foi publicada.
                 </p>
                 <p>
                     Sou também chefe escoteiro, hoje atuo com crianças pequenas.
                     E pelo escoteiro consigo viver várias experiências e conhecer pessoas diversas.
                 </p>
                 <p>
-                    Para finalizar, aos finais de semana eu sou jogador de uma campanha de Pathfinder.
+                    Gosto bastante de jogar RPG quando sobra algum tempo.
                 </p>
             </div>
             <div class="card mt-1em">
-                <h2 class="content-subtitle">Meus jogos favoritos</h2>
-                <p>
-                    Uma lista com alguns dos jogos que mais me marcaram.
-                </p>
+                <h2 class="content-subtitle pt">Meus jogos favoritos</h2>
+                <h2 class="content-subtitle en">My favorite games</h2>
+                <p class="pt">Aqui estão alguns dos jogos que me mais me marcaram:</p>
+                <p class="en">Here are some of the games that have marked me the most:</p>
                 <ul>
+                    <li>Hollow Knight</li> 
                     <li>Borderlands 2</li>
-                    <li>Hollow Knight</li>
                     <li>Eastshade</li>
                     <li>Bastion</li>
                     <li>Diablo II</li>
                     <li>Portal 2</li>
                     <li>Genshin Impact</li>
-                    <li>Sonic Adventure DX</li>
                 </ul>
             </div>
         </section>
     </div>
     <footer class="page-footer">
         <span class="text-footer">
-            <small class="d-xs-none">desenvolvido por</small> Guilherme Fritis - 
-            <a href="mailto:guilhermecfritis@gmail.com?subject=&body=" data-tooltip="Me envie um e-mail">
+            <small class="d-xs-none pt">desenvolvido por</small> Guilherme Fritis - 
+            <small class="d-xs-none en">developed by</small> Guilherme Fritis - 
+            <a href="mailto:guilhermecfritis@gmail.com?subject=&body=" data-tooltip-pt="Me envie um e-mail" data-tooltip-en="Send me an e-mail">
                 <span class="bi bi-envelope-fill"></span>
             </a> 
-            <a href="https://www.linkedin.com/in/guifritis" data-tooltip="Se conecte comigo no linkedIn">
+            <a href="https://www.linkedin.com/in/guifritis" data-tooltip-pt="Se conecte comigo no linkedIn" data-tooltip-en="Connect with me on linkedIn">
                 <span class="bi bi-linkedin"></span>
             </a>
-            <a href="https://github.com/guifritis" data-tooltip="Veja meu perfil do github">
+            <a href="https://github.com/guifritis" data-tooltip-pt="Veja meu perfil do github" data-tooltip-en="Check my profile on github">
                 <span class="bi bi-github"></span>
             </a>
         </div>
-        <label class="theme-switch" for="theme-switch-checkbox" data-tooltip="Alterar entre tema claro e escuro.">
+        <label class="theme-switch" for="theme-switch-checkbox" data-tooltip-pt="Alterar entre tema claro e escuro." data-tooltip-en="Switch between dark and light mode.">
             <input type="checkbox" id="theme-switch-checkbox" class="d-none">
             <div class="switch-pin">
                 <span class="bi bi-moon-stars theme-dark"></span>
