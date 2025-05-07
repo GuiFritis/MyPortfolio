@@ -107,6 +107,7 @@ a:hover{
 .dropdown-link{
     cursor: pointer;
     display: inline-block;
+    white-space: nowrap;
 }
 
 .dropdown-link::after{
@@ -402,6 +403,7 @@ a:hover{
 
 .audio-control > span{
     display: none;
+    cursor: pointer;
 }
 
 .audio-control > input:checked ~ .mute{
@@ -521,11 +523,14 @@ a:hover{
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: 1.5em;
+    gap: 0.5em;
 }
 
 .header-info > h1, .header-info > h4{
     margin: 0px;
+}
+.header-info > h1{
+    font-size: clamp(1em, 2em, 2.6vw);
 }
 
 /* HEADER > NAV BAR */
@@ -536,6 +541,11 @@ a:hover{
     gap: 1em;
     transition: left .4s;
     font-size: 1.1em;
+    padding: 0.5em 0.8em 0.5em 0.5em;
+}
+
+.nav-item{
+    white-space: nowrap;
 }
 
 .nav-item.active{
@@ -756,7 +766,7 @@ a:hover{
     }
 
     .header-info > h1{
-        font-size: clamp(1.3em, 2em, 5vw);
+        font-size: clamp(1.3em, 2em, 4.5vw);
     }
 
     nav{

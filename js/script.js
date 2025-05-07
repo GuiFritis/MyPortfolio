@@ -3,18 +3,15 @@ if(url_params.has('section'))
 {
     window.location.hash = "#"+url_params.get('section');
 }
-var mode = url_params.has('mode')?url_params.get('mode'):
-    (window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
-const language = url_params.has('language')?url_params.get('language'):'';
 const tooltip = document.createElement('div');
 const tooltip_pointer = document.createElement('div');
 
 
 window.addEventListener('load', (event) => {
+    switchLanguage(url_params.has('language')?url_params.get('language'):'en');
     loadTheme();
     loadDropdowns();
     createTooltip();
-    openSection();
     assignateTooltips();
     playVideos();
 });
@@ -28,10 +25,10 @@ document.querySelectorAll('.audio-control > input').forEach((el,id) => el.addEve
 
 function loadTheme()
 {
-    if(mode == 'light')
+    let mode = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if(mode)
     {
         document.getElementById('theme-switch-checkbox').checked = true;
-        document.body.classList.add('light');
         document.body.classList.add('light');
     }
     else
@@ -39,7 +36,7 @@ function loadTheme()
         document.body.classList.add('dark');
     }
     document.getElementById('theme-switch-checkbox').addEventListener("change", switchLightMode);
-    document.getElementById("favicon").href = "media/favicon_" + mode + ".png";
+    document.getElementById("favicon").href = "media/favicon_" + (mode ? "light" : "dark") + ".png";
 }
 
 function loadDropdowns()
@@ -88,8 +85,11 @@ function showTooltip(ev)
         }
     }
     tooltip.style.left = Math.min(
-        ev.target.getBoundingClientRect().left - tooltip.clientWidth/2 + ev.target.clientWidth/2,
-        document.body.clientWidth - tooltip.clientWidth - 8
+        Math.max(
+            ev.target.getBoundingClientRect().left - tooltip.clientWidth/2 + ev.target.clientWidth/2,
+            8
+        ),
+        document.body.clientWidth - tooltip.clientWidth/2 - 8
     ) + "px";
     tooltip_pointer.style.left = (ev.target.getBoundingClientRect().left + ev.target.clientWidth/2 - 3) + "px";
     if(ev.target.getBoundingClientRect().top <= tooltip.clientHeight + 30)
@@ -120,37 +120,33 @@ function switchLightMode(ev)
 {    
     if(ev.target.checked)
     {
-        mode = 'light';
         document.body.classList.add('light');
         document.body.classList.remove('dark');
     }
     else
     {
-        mode = 'dark';
         document.body.classList.add('dark');
         document.body.classList.remove('light');
     }
-    addHistory();
-    document.getElementById("favicon").href = "media/favicon_" + mode + ".png";
+    document.getElementById("favicon").href = "media/favicon_" + (ev.target.checked ? "light" : "dark") + ".png";
 }
 
-function openSection()
+function openSection(section)
 {
-    let section = window.location.hash.substring(1);
-    document.getElementById(section)?.scrollIntoView({ 
-        behavior: "smooth" 
+    let element = document.getElementById(section);
+    window.scrollTo({
+        top: element.offsetTop - 60,
+        left: 0,
+        behavior: "smooth"
     });
-}
-
-function addHistory()
-{
-    history.pushState({page:1}, "section", `?mode=${mode}&language=${language}`);
 }
 
 function switchLanguage(lang)
 {
-    let section = window.location.hash.substring(1);
-    document.location.href=`index${lang}.html?mode=${mode}&language=${lang}#${section}`;
+    document.body.classList.remove("pt","en");
+    document.body.classList.add(lang);
+    document.querySelector(".dropdown-language").classList.remove("open");
+    hideTooltip();
 }
 
 function checkVisible(elm, offset) {
