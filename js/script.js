@@ -1,8 +1,4 @@
 const url_params = new URLSearchParams(window.location.search);
-if(url_params.has('section'))
-{
-    window.location.hash = "#"+url_params.get('section');
-}
 const tooltip = document.createElement('div');
 const tooltip_pointer = document.createElement('div');
 
@@ -143,6 +139,7 @@ function openSection(section)
 
 function switchLanguage(lang)
 {
+    lang = lang.search("br")||lang=="br"?"pt":lang;
     document.body.classList.remove("pt","en");
     document.body.classList.add(lang);
     document.querySelector(".dropdown-language").classList.remove("open");

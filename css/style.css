@@ -585,6 +585,7 @@ a:hover{
     text-align: center;
     background: var(--bg_contrast);
     padding: .1em .4em;
+    z-index: 100;
 }
 
 .text-footer{
