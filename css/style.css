@@ -755,7 +755,10 @@ a:hover{
 }
 
 @media only screen and (max-width: 770px) {
-
+    body{
+        margin: 0px 0px 30px;
+    }
+	
     #page-content{
         margin-top: 50px;
     }
