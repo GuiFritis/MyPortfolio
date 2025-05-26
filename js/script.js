@@ -139,7 +139,6 @@ function openSection(section)
 
 function switchLanguage(lang)
 {
-    lang = lang.search("br")||lang=="br"?"pt":lang;
     document.body.classList.remove("pt","en");
     document.body.classList.add(lang);
     document.querySelector(".dropdown-language").classList.remove("open");
