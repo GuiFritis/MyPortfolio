@@ -281,6 +281,12 @@ a:hover{
         0px 0px 20px -8px var(--shadow_color);
 }
 
+.text-indent{
+    display: inline-block;
+    width: 2ch;
+    height: 2.2ch;
+}
+
 .about-me-overview > p{
     margin: .6em 0px;
     text-align: justify;
@@ -405,7 +411,7 @@ a:hover{
 }
 
 .game-title{
-    margin: 0px 20px 5px;
+    margin: 0px 20px 10px;
     font-size: 2em;
     position: relative;
     display: block; 
@@ -436,17 +442,24 @@ a:hover{
 }
 
 .game-description{
-    margin: 0px 20px 20px;
+    margin: 0px 20px .5ch;
     z-index: 2;
+    padding-top: 5px;
 }
 
-.game-description > ul{
+.game-description ul{
     margin: 0px;
     line-height: 1.4em;
+    padding-left: 35px;
 }
 
-.game-description > ul ul{
+.game-description ul ul{
     padding-left: 1.5em;
+}
+
+.game-description p{
+    margin-top: 0px;
+    margin-bottom: 1.5ch;
 }
 
 .skills-slider{
