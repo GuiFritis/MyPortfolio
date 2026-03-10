@@ -60,12 +60,12 @@
                     <span class="dropdown-link" data-tooltip="Switch language/Trocar língua">
                         <span class="flag">
                             <img class="pt" src="./media/flag_brazil.png" alt="Bandeira do Brasil">
-                            <img class="en" src="./media/flag_uk.png" alt="Bandeira do Reino Unido">
+                            <img class="en" src="./media/flag_uk.png" alt="UK flag">
                         </span>
                     </span>
                     <div class="dropdown-menu text-center">
                         <a href="javascript:;" onclick="switchLanguage('en');" class="flag pt" data-tooltip="See this page in english">
-                            <img src="./media/flag_uk.png" alt="Bandeira do Reino Unido">
+                            <img src="./media/flag_uk.png" alt="UK flag">
                         </a>
                         <a href="javascript:;" onclick="switchLanguage('pt');" class="flag en" data-tooltip="Ver página em português">
                             <img src="./media/flag_brazil.png" alt="Bandeira do Brasil">
@@ -97,6 +97,56 @@
             <h2 class="content-title pt">Jogos</h2>
             <h2 class="content-title en">Games</h2>
             <div class="games">
+                <div class="game-card card d-none">
+                    <div class="game-image">
+                        <img src="media/images/TowerDefense.png" alt="Spash art do jogo/Game's spash art">
+                        <video loop muted="muted" autoplay="true">
+                            <source src="media/videos/TowerDefense.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <!-- <div class="game-links">
+                            <a href="https://guifritis.itch.io/" target="_blank" data-tooltip-pt="Jogar no itch.io" data-tooltip-en="Play on itch.io">
+                                <span class="bi bi-play-fill"></span>
+                            </a>
+                            <a href="https://github.com/GuiFritis/" target="_blank" data-tooltip-pt="Ver no github" data-tooltip-en="See on github">
+                                <span class="bi bi-github"></span>
+                            </a>     
+                            <label class="audio-control" data-tooltip-pt="Habilitar/desabilitar som" data-tooltip-en="Mute/unmute">
+                                <input type="checkbox" checked>
+                                <span class="bi bi-volume-up unmute"></span>
+                                <span class="bi bi-volume-mute mute"></span>
+                            </label>
+                        </div> -->
+                    </div>
+                    <h3 class="game-title" data-tooltip="Tower Defense Game">Tower Defense Game</h3>
+                    <div class="scrollable game-description">
+                        <div class="pt">
+                            <ul>
+                                <li><b>Gênero</b>: Defesa de torre, roguelike</li>
+                                <li><b>Engine</b>: Unity</li>
+                            </ul>
+                            <p>
+                                <span class="text-indent"></span>Esse é um jogo em desenvolvimento com escopo maior.<br/>
+                                <span class="text-indent"></span>Atualmente eu sou responsável por todos os aspectos do jogo, que se resumem a game design e programação. A parte visual e sonora ainda não está sendo implementada.<br/>
+                                <span class="text-indent"></span>O jogo é uma defesa de torre com elementos de roguelike no estilo de Vampire Survivors, onde o jogador passa de nível e escolhe upgrades.<br/>
+                                <span class="text-indent"></span>O jogo está em uma fase de testes internos, no meu <a target="_blank" href="https://www.linkedin.com/in/guifritis">LinkedIn</a> você pode acompanhar um pouco do processo de desenvolvimento do jogo.
+                            </p>
+                        </div>
+                        <div class="en">
+                            <ul>
+                                <li><b>Genre</b>: 2D Platform</li>
+                                <li><b>Engine</b>: Unity</li>
+                                <li><b>Platforms</b>: Web Browser (itch.io)</li>
+                            </ul>
+                            <p>
+                                <span class="text-indent"></span>This is a game in development with a bigger scope.<br/>
+                                <span class="text-indent"></span>Currently I am the responsible for all aspects of the game, which resumes to game design and programming. The visual and audios are not yet being implemented.<br/>
+                                <span class="text-indent"></span>The game is a tower defense with elements of roguelike in the style of Vampire Survivors, where the player levels up and choose an upgrade.<br/>
+                                <span class="text-indent"></span>The game is going through some internal testings, on my <a target="_blank" href="https://www.linkedin.com/in/guifritis">LinkedIn</a> you can see some of the development process.
+                            </p>
+                        </div>
+                    </div>
+                </div> 
                 <div class="game-card card">
                     <div class="game-image">
                         <img src="media/images/DeathsTotem.png" alt="Spash art do jogo/Game's spash art">
@@ -140,7 +190,7 @@
                             </ul>
                             <p>
                                 <span class="text-indent"></span>This game was developed for the <b>Global Game Jam 2026</b> by a team of 3 developers and 3 artists.<br/>
-                                <span class="text-indent"></span>I was responsible for the <b>project manager</b>, <b>game design</b> e <b>programming</b>. Making decisions, ensuring game feel, creating the level design, managing code and teaching the novice programmers.<br/>
+                                <span class="text-indent"></span>I was responsible for the <b>project management</b>, <b>game design</b> e <b>programming</b>. Making decisions, ensuring game feel, creating the level design, managing code and teaching the novice programmers.<br/>
                                 <span class="text-indent"></span>After the jam was finished, I made some improvements and polishes on the game.
                             </p>
                         </div>
@@ -668,13 +718,13 @@
         <span class="text-footer">
             <small class="d-xs-none pt">desenvolvido por</small>
             <small class="d-xs-none en">developed by</small> Guilherme Fritis - 
-            <a href="mailto:guilhermecfritis@gmail.com?subject=&body=" data-tooltip-pt="Me envie um e-mail" data-tooltip-en="Send me an e-mail">
+            <a target="_blank" href="mailto:guilhermecfritis@gmail.com?subject=&body=" data-tooltip-pt="Me envie um e-mail" data-tooltip-en="Send me an e-mail">
                 <span class="bi bi-envelope-fill"></span>
             </a> 
-            <a href="https://www.linkedin.com/in/guifritis" data-tooltip-pt="Se conecte comigo no linkedIn" data-tooltip-en="Connect with me on linkedIn">
+            <a target="_blank" href="https://www.linkedin.com/in/guifritis" data-tooltip-pt="Se conecte comigo no linkedIn" data-tooltip-en="Connect with me on linkedIn">
                 <span class="bi bi-linkedin"></span>
             </a>
-            <a href="https://github.com/guifritis" data-tooltip-pt="Veja meu perfil do github" data-tooltip-en="Check my profile on github">
+            <a target="_blank" href="https://github.com/guifritis" data-tooltip-pt="Veja meu perfil do github" data-tooltip-en="Check my profile on github">
                 <span class="bi bi-github"></span>
             </a>
         </div>

@@ -4,7 +4,7 @@ const tooltip_pointer = document.createElement('div');
 
 
 window.addEventListener('load', (event) => {
-    switchLanguage(url_params.has('language')?url_params.get('language'):'en');
+    switchLanguage(url_params.has('language')&&url_params.get('language')=='en'?'en':'pt');
     loadTheme();
     loadDropdowns();
     createTooltip();
